@@ -1,0 +1,18 @@
+.container{
+    border: 2px solid #D9EDF7;
+    margin-top: 20px;
+}
+
+.header{
+    height: 50px;
+   
+    font-family: arial black;
+    font-size: 23px;
+    padding-top: 5px;
+    width: 1000px;
+    
+}
+
+.imag{
+    margin-left: 25px;
+}
