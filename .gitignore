@@ -10,10 +10,11 @@ public/javascripts/bursary.js
 public/javascripts/bursary_2.js
 public/images/Screenshot (54).png
   .npmrc
-bootstrap/
+bootstrap
 fontawesome-free-5.4.1-web/
 views/auth
 public/javascripts/js
+public/stylesheet
 
 
 

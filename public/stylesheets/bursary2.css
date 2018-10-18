@@ -47,7 +47,7 @@ body {
 #main {
   transition: margin-left 0.5s;
   /* padding: 20px; */
-  margin-top: 50px;
+  /* margin-top: 50px; */
 }
 
 .openside {
@@ -70,7 +70,7 @@ body {
 thead {
   background: #0232af;
   color: #f1f1f1;
-  /* padding: 10px; */
+  padding: 10px;
 }
 .table-striped>thead>tr>th{
     padding: 15px;
@@ -105,9 +105,7 @@ thead {
 
 } */
 
-.row{
-    margin-left: 10%
-}
+/*         */
 
 .table-title{
     margin: auto;
