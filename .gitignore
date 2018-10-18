@@ -1,0 +1,6 @@
+node_modules
+views/authentication.ejs
+views/bursary.ejs
+views/bursary_2.ejs
+public/stylesheets/authenticstion.css
+public/stylesheets/bursary.css

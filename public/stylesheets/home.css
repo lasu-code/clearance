@@ -1,0 +1,227 @@
+body, html{
+    margin: 0;
+    color: #525c65;
+    padding: 0;
+    color: #525c65;
+    font-size: 14px;
+    font-family: Open Sans,sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+
+#top-header{
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 15px 25px;
+    z-index: 15;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: aliceblue;
+    box-shadow: 0 3px 5px 0 rgba(0,0,0,.3);
+    height:100px;
+}
+
+a{
+    color: #88d5e9;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.details-headerimage{
+   padding-left: 40%;
+}
+.details-header{
+    text-align: center;
+
+}
+.details{
+    
+    /* font-weight: bold; */
+    font-size: 20px;
+}
+
+#clearence-box{
+    margin: auto;
+    margin-top: 150px;
+    background-color: #fff;
+    box-shadow: 0 0 20px 0 rgba(46,61,73,.15);
+    max-width: 860px;
+   
+    border-radius: 6px;
+    line-height: 1.6em;
+  
+}
+
+#clearence-status-box{
+    padding: 30px;
+}
+
+.timeline-container{
+    width: 100%;
+    position: relative;
+    /* height: 70px; */
+    margin: 0;
+    padding: 0;
+    margin-top: 90px;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    display: block;
+    /* z-index: 2; */
+
+}
+
+#timeline-line{
+    position: relative;
+    top: 6px;
+    width: 100%;
+    height: 4px;
+    background-color: #dbe2e8;
+}
+
+#timeline-now{
+    width: 20%;
+    position: absolute;
+    background-color: green;
+    transition: all .7s ease ease-in-out;
+    top: 6px;
+    left: 0px;
+    height: 4px;
+    border-radius: 4px;
+    
+}
+
+#timeline-now:after {
+    content: "";
+    display: block;
+    width: 16px;
+    height: 16px;
+    border-radius: 100%;
+    box-shadow: 0 5px 20px 0 rgba(0,0,0,.3);
+    right: -10px;
+    top: -6px;
+    position: absolute;
+    background-color: green;
+    transition: all .7s ease-in-out;
+    z-index: 5;
+
+
+}
+
+.timeline-event{
+    position: absolute;
+    top: 3px;
+}
+
+.timeline-event:before{
+    background-color: #88d5e9;
+   
+     position: absolute;
+        left: 0;
+        top: 0;
+        content: "";
+        display: block;
+        margin-left: -5px;
+        width: 10px;
+        height: 10px;
+        border-radius: 100%;
+        /* background-color: #02ccba; */
+        box-shadow: 5px 2px 10px 0 rgba(0,0,0,.1);
+        
+    
+}
+
+#timeline-info{
+    width: 100%;
+    margin-top: -25px;
+    transform: translate(-50%);
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#timeline-date{
+    color: #2e3d49;
+    font-weight: 600;
+}
+
+#student-profile{
+    font-size: 20px;
+    color: #fff;
+    padding: 50px;
+    border-radius: 6px 6px 0 0;
+    background: linear-gradient(140.05deg,#88d5e9,pink);
+    border-bottom: 1px solid #dbe2e8;
+    height: 350px;
+}
+
+#status-bursary, #status-library, #status-sportsCentre, #status-faculties, #status-studentAffairs, #status-internalAudits{
+    border-top: 1px solid #dbe2e8;
+    padding: 50px 0;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.status-bar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.status-bar-label{
+    display: flex;
+    flex-direction: row;
+}
+
+.status-bar-info{
+    display: flex;
+    flex-direction: column;
+}
+
+.status-bar-title{
+    color: #2e3d49;
+    font-size: 18px;
+}
+
+.currentstatus{
+    color: #7d97ad;
+    margin-top: 8px;
+}
+
+.action-bar{
+    display: flex;
+    flex-direction: row;
+
+}
+
+.action-button{
+    cursor: pointer;
+    padding: 1.2em;
+    background: #88d5e9;
+    border: none;
+    border-radius: 4px;
+    box-shadow: 12px 15px 20px rgba(0,0,0,.1);
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Open Sans,sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: .165em;
+    max-width: 100%;
+    overflow: hidden;
+    text-align: center;
+    text-overflow: ellipsis;
+    text-transform: uppercase;
+    transition: box-shadow .2s ease-in-out,background-color .2s ease-in-out,border-color .2s ease-in-out;
+    white-space: nowrap;
+}
