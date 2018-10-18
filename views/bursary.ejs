@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        <%= title %>
+    </title>
+    <link rel="stylesheet" href="/stylesheets/bursary2.css">
+    <link rel="stylesheet" href="/stylesheet/css/bootstrap.min.css">
+    <script src="/javascripts/js/bootstrap.bundle.min.js"></script>
+    <script src="/javascripts/js/jquery-3.3.1.min.js"></script>
+    <script src="/javascripts/js/popper.min.js"></script>
+    <script src="/javascripts/bursary2.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+    <!-- <header>
+         <%- include ./partials/header %> 
+
+    </header> 
+
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+        <a href="#">PENDING</a>
+        <a href="#">CLEARED</a>
+        <a href="#">REJECTED</a>
+    </div>
+     <span class="openside" onclick="openNav()">☰</span> -->
+
+
+    <div id="main">
+
+        <div class="container" style="margin-top:10%">
+            <div class="row">
+                    <h1 class="h1 table-title">PENDING LIST</h1>
+                <div class="col-lg-12">
+                    <div class="table-responsive">
+                        <table class="table table-hover table-striped">
+                            <thead>
+                                <tr>
+                                    <th>FIRSTNAME</th>
+                                    <th>MIDDLENAME</th>
+                                    <th>LASTNAME</th>
+                                    <th>MATRIC NUMBER</th>
+                                    <th>DETAILS</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- <a href="#myModal" class="btn btn-info btn-lg" data-toggle="modal"> -->
+                                <tr data-toggle="modal" data-target="#myModal">
+                                    <td><%- fname%></td>
+                                    <td><%- midname%></td>
+                                    <td><%- lastName%></td>
+                                    <td><%- matricNo%></td>
+                                    <td>
+                                        <button type="button" data-toggle="modal" class="btn btn-info btn-sm" class="details"
+                                            data-target="#myModal">show
+                                            details</button>
+
+                                    </td>
+                                </tr>
+                                <!-- </a>           -->
+
+                                <tr>
+                                    <td>azeez</td>
+                                    <td>omoyemi</td>
+                                    <td>lukman</td>
+                                    <td>170115015</td>
+                                    <td>
+                                        <button type="button" data-toggle="modal" class="btn btn-info btn-sm" class="details"
+                                            data-target="#myModal">show
+                                            details</button>
+
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>opeoluwa</td>
+                                    <td>ola</td>
+                                    <td>siyanbola</td>
+                                    <td>12345678</td>
+                                    <td>
+                                        <button type="button" data-toggle="modal" class="btn btn-info btn-sm" class="details"
+                                            data-target="#myModal">show
+                                            details</button>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>oluwatope</td>
+                                    <td>tope</td>
+                                    <td>docemtee</td>
+                                    <td>12345678</td>
+                                    <td>
+                                        <button type="button" data-toggle="modal" class="btn btn-info btn-sm" class="details"
+                                            data-target="#myModal">show
+                                            details</button>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>oluwaseun</td>
+                                    <td>elisha</td>
+                                    <td>dabiri</td>
+                                    <td>12345678</td>
+                                    <td>
+                                        <button type="button" data-toggle="modal" class="btn btn-info btn-sm" class="details"
+                                            data-target="#myModal">show
+                                            details</button>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>ibrahim</td>
+                                    <td>ibrahim</td>
+                                    <td>ibrahim</td>
+                                    <td>12345678</td>
+                                    <td>
+                                        <button type="button" data-toggle="modal" class="btn btn-info btn-sm" class="details"
+                                            data-target="#myModal">show
+                                            details</button>
+
+                                </tr>
+                            </tbody>
+
+                        </table>
+                    </div>
+                </div>
+
+
+            </div>
+            <!-- Trigger the modal with a button -->
+
+            <!-- Modal -->
+            <div id="myModal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title"><%- fname%>`s details</h4>
+
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+
+                        <div class="modal-body">
+                            <!-- document -->
+                            <div class="container-fluid">
+                                
+                                   <ul class="list-group">
+                                       <li class="list-group-item" > <img src="http://studentservices.lasu.edu.ng/returningstudents/images/stud_image/170115003.jpg"
+                                        class="img-circle"   width="100px" height="100px"alt="profile" srcset=""></li>
+                                       <li class="list-group-item">Name:<%- lastName%> <%- fname%> o</li>
+                                       <li class="list-group-item">matric:<%- matricNo%></li>
+
+                                   </ul>
+
+                                
+
+                                <p>scanned documents</p>
+                                <!-- profile -->
+                                <div  class="profile">
+                                    <img src="http://studentservices.lasu.edu.ng/returningstudents/images/stud_image/170115003.jpg"
+                                          width="200px" height="200px"alt="profile" srcset="">
+                                </div>
+                                <br> <br>
+                                <!-- transaction slip -->
+                                <div  class="transaction slip">
+                                        <img src="http://studentservices.lasu.edu.ng/returningstudents/images/stud_image/170115040.jpg"
+                                         width="200px" height="200px" alt="profile" srcset="">
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div>
+
+
+        <script>
+            $(document).ready(function () {
+                $("#MyModal").modal();
+            });
+        </script>
+
+
+</body>
+
+</html>
