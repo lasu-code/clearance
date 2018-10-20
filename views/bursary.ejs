@@ -5,6 +5,7 @@
     <title>
         <%= title %>
     </title>
+    <link rel="icon" href="https://lasugong.com/wp-content/uploads/2018/04/lasugong-LOGO-favicon.jpg" type="imgaes/gif" sizes="16x16 32x32">
     <link rel="stylesheet" href="/stylesheets/bursary2.css">
     <link rel="stylesheet" href="/stylesheet/css/bootstrap.min.css">
     <script src="/javascripts/js/bootstrap.bundle.min.js"></script>
@@ -283,11 +284,11 @@
 
                             <p>scanned documents</p>
                             <!-- profile -->
-                            <div class="profile">
+                            <!-- <div class="profile">
                                 <img src="http://studentservices.lasu.edu.ng/returningstudents/images/stud_image/170115003.jpg"
                                     width="200px" height="200px" alt="profile" srcset="">
-                            </div>
-                            <br> <br>
+                            </div> -->
+                            
                             <!-- transaction slip -->
                             <div class="transaction slip">
                                 <img src="http://studentservices.lasu.edu.ng/returningstudents/images/stud_image/170115040.jpg"
@@ -295,15 +296,23 @@
                             </div>
                             <br> <br>
                             <div class="btn-group">
-                                <button type="button" class="btn btn-success">CLEARED</button>
-                                <br>
+                                <button type="button" class="btn btn-success">CLEAR</button>
+                            </div>
+                            <div class="btn-group">
                                 <button type="button" class="btn btn-danger">REJECT</button>
                             </div>
+
                             <br>
                             <div class="form-group">
-                                <label for="comment">Comment:</label>
-                                <textarea class="form-control" rows="5" id="comment"></textarea>
-                              </div>
+                                <form action="">
+                                    <label for="comment">Comment:</label>
+                                    <textarea class="form-control" rows="5" id="comment"></textarea>
+                                    <br>
+                                    <button class="btn btn-primary" type="submit">post</button>
+                                </form>
+                            </div>
+
+
 
                         </div>
                     </div>
