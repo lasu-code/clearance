@@ -18,3 +18,34 @@ function opentab(evt, cityName) {
     document.getElementById(cityName).style.display = "block";
     evt.currentTarget.classList.add("active");
 }
+
+// let users = [
+//     {
+//         firstname: "fawas",
+//         surname: "kareem",
+//         middlename: "olamilekan",
+//         matricNo: "170115028"
+
+//     },
+//     {
+//         firstname: "ridwan",
+//         surname: "kareem",
+//         middlename: "olatunji",
+//         matricNo: "170115030"
+
+//     },
+
+//     {
+//         firstname: "dammy",
+//         surname: "bello",
+//         middlename: "luvlyber",
+//         matricNo: "170115040"
+
+//     },
+// ]
+
+// for(1=0; i<users.length; i++){
+//     if(Username == matricNo & password == surname);
+//     console.log("you are a student")
+    
+// }

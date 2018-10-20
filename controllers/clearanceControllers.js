@@ -5,7 +5,9 @@
 };
 
 exports.authentication = function(req, res, next){
-    res.render('auth', {title: "login"});
+    res.render('auth', {title: "login",
+    
+    });
 };
 
 exports.studentDashboard = function(req, res, next){
