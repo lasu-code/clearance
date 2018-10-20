@@ -1,0 +1,35 @@
+#top-header{
+    position: fixed;
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+    box-sizing: border-box;
+    padding: 25px 30px;
+    z-index: 5;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: aliceblue;
+    box-shadow: 0 3px 5px 0 rgba(0,0,0,.3);
+    height: 90px;
+}
+
+#headerCompliment{
+    position: fixed;
+    display: flex;
+    top: 90px;
+    left: 0;
+    right: 0;
+    background-color: blue;
+    box-shadow: 0 3px 5px 0 rgba(0,0,0,.3);
+    height: 8px;
+    z-index: 2;
+}
+
+#logo{
+    color: rgba(35, 95, 214, 0.904);
+    font-weight: bold;
+    font-size: 30px;
+    text-shadow: 3px 3px #884c88;
+ 
+}

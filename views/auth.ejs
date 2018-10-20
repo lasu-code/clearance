@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        <%= title %>
+    </title>
+    <!-- <link rel='stylesheet' href='/stylesheets/style.css' /> -->
+    <link rel='stylesheet' href='/stylesheets/authentication.css' />
+
+    <script src=" /javascripts/authentication.js"></script>
+</head>
+
+<body>
+    <!-- <h1>
+        <%= title %>
+    </h1>
+    <p>Welcome to
+        <%= title %>
+    </p> -->
+
+
+    <header>
+        <%-include ./partials/header %>
+    </header>
+    <main>
+
+        <div class="formContainer">
+        <ul class="tab">
+            <li><a href="#" class="tablinks" onclick="opentab(event, 'studentLogin')">Login as students</a></li>
+            <li><a href="#" class="tablinks tablinks2" onclick="opentab(event, 'unitLogin')">Login as Unit</a></li>
+        </ul>
+       
+            <div id="unitLogin" class="tabcontent tabcontent2">
+                <form action="" method="POST">
+                    <h3 class="diffs">Units Login</h3>
+                    <div id="firstField">
+                        <label for="Username">E-mail
+                            <br>
+                            <input type="email" name="Username" id="Username" required>
+                        </label>
+                        <br>
+                        <label for="Password">Password
+                            <br>
+                            <input type="password" name="password" required>
+                        </label>
+                        <br> <br>
+                        <!-- <input id="Username" class="playbtn" type="button" onclick="playGame()" value='Play Game' /> -->
+                        <input type="submit" class="submit" value="log in">
+                    </div>
+
+                    <h1 id="welName"></h1>
+                    <hr>
+                    <div id="forget">
+                        <!-- <a href=""> <span class="forget" id="create" >Create Account?</span></a> -->
+                        <a href=""> <span class="forget" id="recover"> Forget password?</span></a>
+                    </div>
+
+
+
+
+                </form>
+
+            </div>
+
+            <div id="studentLogin" class="tabcontent">
+                <form action="/studentDashboard" method="POST">
+                    <h3 class="diffs">Student Login</h3>
+                    <div id="firstField">
+                        <label for="Username">Matric Number
+                            <br>
+                            <input type="text" name="Username" id="Username" required>
+                        </label>
+                        <br>
+                        <label for="Password">Surname
+                            <br>
+                            <input type="password" name="password" required>
+                        </label>
+                        <br> <br>
+                        <!-- <input id="Username" class="playbtn" type="button" onclick="playGame()" value='Play Game' /> -->
+                        <input type="submit" class="submit" value="log in">
+                    </div>
+
+                    <h1 id="welName"></h1>
+                    <hr>
+
+
+
+                </form>
+
+            </div>
+        </div>
+
+
+
+
+
+
+    </main>
+
+</body>
+
+</html>
