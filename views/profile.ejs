@@ -50,7 +50,7 @@
              </div>
 
              <div class="col-lg-4 col-md-4 col-md-12"> 
-                 <img src="/public/images/lasu.jpg " class="rounded imag" alt="img" height="100px" width="100px">
+                 <img src="http://www.studentservices.lasu.edu.ng/returningstudents/images/stud_image/<%=matricNo%>.jpg" class="rounded imag" alt="img" height="150px" width="150px">
                 
                 </div>
          </div>
@@ -65,11 +65,11 @@
                     <tbody>
                       <tr>
                         <td>Name:</td>
-                        <td>Siyanbola Opeoluwa</td>
+                        <td><%=name%></td>
                       </tr>
                       <tr>
                         <td>Matric Number:</td>
-                        <td>150114001</td>
+                        <td><%=matricNo%></td>
                       </tr>
                       <tr>
                         <td>Date of Birth</td>
@@ -108,8 +108,10 @@
                     </tbody>
                   </table>
                   
-                  <a href="#" class="btn btn-primary">Start Clearance Process</a>
-                  
+                
+                  <a href="/students" class="btn btn-primary">Start Clearance Process</a>
+              
+                  <a href="/logout">logout</a>
                 </div>
               </div>
             </div>

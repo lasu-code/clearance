@@ -1,6 +1,8 @@
   body {
   margin: 0;
-  background: url("/public/images/bg-img\ 1.png");
+  background: url("../images/bg-img\ 1.png");
+  /* background-repeat: none;
+  background-size: cover; */
 }
 
 /* The side navigation menu */
