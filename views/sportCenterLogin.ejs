@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>sportCenter login</title>
+    <link rel="icon" href="https://lasugong.com/wp-content/uploads/2018/04/lasugong-LOGO-favicon.jpg" type="imgaes/gif" sizes="16x16 32x32">
+
+    <link rel="stylesheet" href="/public/stylesheets/login.css">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+    <span class="alert alert-light" role="alert">
+  <%=loginError%>
+</span>
+
+ <span class="alert alert-light" role="alert">
+  <%=wrongPassword%>
+</span>
+
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+
+    <div class="fadeIn first">
+      <img src="/public/images/lasu.jpg" id="icon" alt="User Icon" />
+      <h1>Lasu Clearance</h1>
+    </div>
+
+    <!-- Login Form -->
+    <form action="/login/sportCenter" method="POST">
+      <input type="text" id="login" class="fadeIn second" name="username" placeholder="Username">
+      <input type="password" id="password" class="fadeIn third" name="password" placeholder="Password">
+      <input type="submit" class="fadeIn fourth" value="Log In">
+    </form>
+
+    <!-- Remind Passowrd -->
+    <div id="formFooter">
+      <p>Lasu Clearance System</p>
+    </div>
+
+  </div>
+</div>
+
+
+</body>
+</html>
