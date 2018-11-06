@@ -27,6 +27,8 @@ router.get('/bursary', isLoggedIn, indexController.bursary);
 router.get('/registerStudent', userController.student);
 
 
+
+
 router.post('/register/student', passport.authenticate('local.registerStudent',{
   successRedirect: '/profile',
   failureRedirect: '/registerStudent',

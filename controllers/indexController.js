@@ -19,20 +19,24 @@ exports.profile = function(req, res, next) {
 
 exports.students = function(req, res, next){ 
   let userMatric = req.user.matricNo;
-   let newClearance = new Clearance();
+    Clearance.findOne({"matricNo": userMatric}).then(function(result){
+      if (!result){
+
+          let newClearance = new Clearance();
         newClearance.studentStatus.status = true;
         newClearance.matricNo = userMatric;
         newClearance.bursaryUnit.status = "pending"
         newClearance.libraryUnit.status = "pending";
         newClearance.sportCenterUnit.status = "pending";
         newClearance.save()
-      
-        Clearance.findOne({"matricNo": req.user.matricNo}).then(function(result){
+        
           console.log(result);
-  
-          res.render('students', {doc: result})
-        })
-       
+
+        }
+         res.render('students', {doc: result})
+    })
+
+   
 }
 
 exports.main = function(req, res, next){
