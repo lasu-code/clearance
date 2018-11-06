@@ -1,4 +1,3 @@
-
 var express = require('express');
 var router = express.Router();
 let indexController = require('../controllers/indexController.js');
@@ -18,11 +17,16 @@ router.get('/students', isLoggedIn, indexController.students);
 
 router.get('/main', indexController.main);
 
-router.get('/registerBursary', userController.bursary);
+router.get('/registerUnits', userController.bursary);
 
 router.get('/bursarylogin', indexController.bursarylogin);
 
+router.get('/sportlogin', indexController.sportlogin);
+
 router.get('/bursary', isLoggedIn, indexController.bursary);
+
+router.get('/sport', isLoggedIn, indexController.sport);
+
 
 router.get('/registerStudent', userController.student);
 
@@ -52,6 +56,12 @@ router.post('/register/bursary', passport.authenticate('local.registerBursary',{
 router.post('/login/bursary', passport.authenticate('local.loginBursary',{
   successRedirect: '/bursary',
   failureRedirect: '/login',
+  failureFlash: true
+}))
+
+router.post('/login/sport', passport.authenticate('local.loginSport',{
+  successRedirect: '/sport',
+  failureRedirect: '/sportlogin',
   failureFlash: true
 }))
 

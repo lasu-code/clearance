@@ -124,3 +124,27 @@ passport.use('local.loginBursary', new LocalStrategy({
     })
 }))
 
+
+passport.use('local.loginSport', new LocalStrategy({
+    usernameField: "username",
+    passwordField: "password",
+    passReqToCallback: true
+}, function(req, username, password, done){
+    User.findOne({'username': username, "role": "sport"}, function(err, user){
+        if (err){
+            return done(err);
+        }
+        if (!user){
+            req.flash('loginError', "INVALID LOGIN")
+            return done(null, false)
+        }
+
+        if(!user.validatePassword(req.body.password)) {
+            req.flash('wrongPassword', "Wrong Password")
+            return done(null, false)
+        }
+
+        return done(null, user)
+
+    })
+}))

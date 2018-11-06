@@ -59,3 +59,18 @@ exports.bursary = function(req, res, next){
     matricNo: "170115028",
     });
 };
+
+exports.sport = function(req, res, next){
+    res.render('sport', {title: "Sport", 
+    fname: "fawas",
+    midname: "olamilekan",
+    lastName: "kareem" ,
+    matricNo: "170115028",
+    });
+};
+
+exports.sportlogin = function(req, res, next){
+  let loginError = req.flash('loginError');
+  let wrongPassword = req.flash('wrongPassword');
+  res.render("sportlogin", {loginError: loginError, wrongPassword: wrongPassword})
+}
