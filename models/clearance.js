@@ -7,6 +7,7 @@ let clearanceSchema = new Schema({
         status: Boolean,
         default: false
     },
+    buttonStatus: {type: String},
     matricNo: {type: String},
     bursaryUnit: {
         status: {type: String},
@@ -17,6 +18,18 @@ let clearanceSchema = new Schema({
         message: {type: String}
     },
     sportCenterUnit: {
+        status: {type: String},
+        message: {type: String}
+    },
+    facultyUnit: {
+        status: {type: String},
+        message: {type: String}
+    },
+    studentAffairs: {
+        status: {type: String},
+        message: {type: String}
+    },
+    internalAuditUnit: {
         status: {type: String},
         message: {type: String}
     }

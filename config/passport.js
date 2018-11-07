@@ -148,3 +148,101 @@ passport.use('local.loginSport', new LocalStrategy({
 
     })
 }))
+
+
+passport.use('local.loginFaculty', new LocalStrategy({
+    usernameField: "username",
+    passwordField: "password",
+    passReqToCallback: true
+}, function(req, username, password, done){
+    User.findOne({'username': username, "role": "faculty"}, function(err, user){
+        if (err){
+            return done(err);
+        }
+        if (!user){
+            req.flash('loginError', "INVALID LOGIN")
+            return done(null, false)
+        }
+
+        if(!user.validatePassword(req.body.password)) {
+            req.flash('wrongPassword', "Wrong Password")
+            return done(null, false)
+        }
+
+        return done(null, user)
+
+    })
+}))
+
+
+passport.use('local.loginLibrary', new LocalStrategy({
+    usernameField: "username",
+    passwordField: "password",
+    passReqToCallback: true
+}, function(req, username, password, done){
+    User.findOne({'username': username, "role": "library"}, function(err, user){
+        if (err){
+            return done(err);
+        }
+        if (!user){
+            req.flash('loginError', "INVALID LOGIN")
+            return done(null, false)
+        }
+
+        if(!user.validatePassword(req.body.password)) {
+            req.flash('wrongPassword', "Wrong Password")
+            return done(null, false)
+        }
+
+        return done(null, user)
+
+    })
+}))
+
+passport.use('local.loginStudentAffairs', new LocalStrategy({
+    usernameField: "username",
+    passwordField: "password",
+    passReqToCallback: true
+}, function(req, username, password, done){
+    User.findOne({'username': username, "role": "student-affairs"}, function(err, user){
+        if (err){
+            return done(err);
+        }
+        if (!user){
+            req.flash('loginError', "INVALID LOGIN")
+            return done(null, false)
+        }
+
+        if(!user.validatePassword(req.body.password)) {
+            req.flash('wrongPassword', "Wrong Password")
+            return done(null, false)
+        }
+
+        return done(null, user)
+
+    })
+}))
+
+passport.use('local.loginInternal', new LocalStrategy({
+    usernameField: "username",
+    passwordField: "password",
+    passReqToCallback: true
+}, function(req, username, password, done){
+    User.findOne({'username': username, "role": "internal-audit"}, function(err, user){
+        if (err){
+            return done(err);
+        }
+        if (!user){
+            req.flash('loginError', "INVALID LOGIN")
+            return done(null, false)
+        }
+
+        if(!user.validatePassword(req.body.password)) {
+            req.flash('wrongPassword', "Wrong Password")
+            return done(null, false)
+        }
+
+        return done(null, user)
+
+    })
+}))

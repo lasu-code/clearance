@@ -14,10 +14,20 @@ exports.login = function(req, res, next) {
 exports.profile = function(req, res, next) {
     let name = req.user.fullname;
     let matricNo = req.user.matricNo;
-    res.render("profile", {name: name, matricNo: matricNo})
-}
+    
+    Clearance.findOne({"matricNo": matricNo}).then(function(result){
+      if (result){
+        result.buttonStatus = "View Clearance Progress";
+        res.render("profile", {name: name, matricNo: matricNo, button: result.buttonStatus})
+      } else if (!result){
+        res.render("profile", {name: name, matricNo: matricNo, button: "Start Clearance Process"})
+      }
+      })
 
-exports.students = function(req, res, next){ 
+    
+  }
+
+exports.students = function(req, res, next){   
   let userMatric = req.user.matricNo;
     Clearance.findOne({"matricNo": userMatric}).then(function(result){
       if (!result){
@@ -28,6 +38,10 @@ exports.students = function(req, res, next){
         newClearance.bursaryUnit.status = "pending"
         newClearance.libraryUnit.status = "pending";
         newClearance.sportCenterUnit.status = "pending";
+        newClearance.facultyUnit.status = "pending";
+        newClearance.studentAffairs.status = "pending";
+        newClearance.internalAuditUnit.status = "pending";
+        
         newClearance.save()
         
           console.log(result);
@@ -50,9 +64,57 @@ exports.bursarylogin = function(req, res, next){
 }
 
 
+exports.facultylogin = function(req, res, next){
+  let loginError = req.flash('loginError');
+  let wrongPassword = req.flash('wrongPassword');
+  res.render("facultylogin", {loginError: loginError, wrongPassword: wrongPassword})
+}
+
+exports.librarylogin = function(req, res, next){
+  let loginError = req.flash('loginError');
+  let wrongPassword = req.flash('wrongPassword');
+  res.render("librarylogin", {loginError: loginError, wrongPassword: wrongPassword})
+}
+
+exports.studentafflogin = function(req, res, next){
+  let loginError = req.flash('loginError');
+  let wrongPassword = req.flash('wrongPassword');
+  res.render("student-afflogin", {loginError: loginError, wrongPassword: wrongPassword})
+}
+
+exports.sportlogin = function(req, res, next){
+  let loginError = req.flash('loginError');
+  let wrongPassword = req.flash('wrongPassword');
+  res.render("sportlogin", {loginError: loginError, wrongPassword: wrongPassword})
+}
+
+
+exports.internallogin = function(req, res, next){
+  let loginError = req.flash('loginError');
+  let wrongPassword = req.flash('wrongPassword');
+  res.render("internallogin", {loginError: loginError, wrongPassword: wrongPassword})
+}
 
 exports.bursary = function(req, res, next){
     res.render('bursary', {title: "busary", 
+    fname: "fawas",
+    midname: "olamilekan",
+    lastName: "kareem" ,
+    matricNo: "170115028",
+    });
+};
+
+exports.library = function(req, res, next){
+    res.render('library', {title: "library", 
+    fname: "fawas",
+    midname: "olamilekan",
+    lastName: "kareem" ,
+    matricNo: "170115028",
+    });
+};
+
+exports.faculty = function(req, res, next){
+    res.render('faculty', {title: "faculty", 
     fname: "fawas",
     midname: "olamilekan",
     lastName: "kareem" ,
@@ -69,8 +131,22 @@ exports.sport = function(req, res, next){
     });
 };
 
-exports.sportlogin = function(req, res, next){
-  let loginError = req.flash('loginError');
-  let wrongPassword = req.flash('wrongPassword');
-  res.render("sportlogin", {loginError: loginError, wrongPassword: wrongPassword})
-}
+
+exports.internal = function(req, res, next){
+    res.render('internal', {title: "Internal-Audit", 
+    fname: "fawas",
+    midname: "olamilekan",
+    lastName: "kareem" ,
+    matricNo: "170115028",
+    });
+};
+
+exports.studentaff = function(req, res, next){
+    res.render('student-aff', {title: "Student-Affairs", 
+    fname: "fawas",
+    midname: "olamilekan",
+    lastName: "kareem" ,
+    matricNo: "170115028",
+    });
+};
+  
