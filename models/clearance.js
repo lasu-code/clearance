@@ -7,6 +7,7 @@ let clearanceSchema = new Schema({
     default: false
   },
   matricNo: { type: String },
+
   bursaryUnit: {
     status: { type: String },
     message: { type: String }
@@ -18,8 +19,25 @@ let clearanceSchema = new Schema({
   sportCenterUnit: {
     status: { type: String },
     message: { type: String }
+  },
+  facultyUnit:{
+    status: {type:String},
+    message: {type:String}
+  },
+  studentAffaiirs:{
+    status: {type:String},
+    message: {type:String}
+  },
+  internalAudit:{
+    status: {type:String},
+    message: {type:String}
+  },
+
+  dateCreated:{
+    type: Date,
+    defaultS: Date.now
   }
 });
 
-module.exports = mongoose.model("Clearance1", clearanceSchema);
+module.exports = mongoose.model("Clearance", clearanceSchema);
  

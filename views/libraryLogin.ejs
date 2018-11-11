@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Bursary login</title>
+    <title> <%=title%></title></title>
     <link rel="icon" href="https://lasugong.com/wp-content/uploads/2018/04/lasugong-LOGO-favicon.jpg" type="imgaes/gif" sizes="16x16 32x32">
 
     <link rel="stylesheet" href="/public/stylesheets/login.css">
@@ -14,15 +14,12 @@
 </head>
 <body>
     <span class="alert alert-light" role="alert">
-  <%=loginError%>
+  <!--remeber to put ligin eror code -->
 </span>
 
  <span class="alert alert-light" role="alert">
-  <%=wrongPassword%>
+  <!-- remember to to put wrong bpassword code -->
 </span>
-
-
-
 
 <div class="wrapper fadeInDown">
   <div id="formContent">
@@ -33,7 +30,7 @@
     </div>
 
     <!-- Login Form -->
-    <form action="/login/bursary" method="POST">
+    <form action="/login/library" method="POST">
       <input type="text" id="login" class="fadeIn second" name="username" placeholder="Username">
       <input type="password" id="password" class="fadeIn third" name="password" placeholder="Password">
       <input type="submit" class="fadeIn fourth" value="Log In">

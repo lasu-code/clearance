@@ -7,7 +7,6 @@ let userSchema = new Schema({
   username: { type: String, trim: true },
   password: { type: String },
   matricNo: { type: String },
-//   file: {Any: File},
   role: { type: String },
   createdDate: {
     type: Date,

@@ -22,7 +22,7 @@ var app = express();
 // global.db = mongoose.connect(uri);
 
 
-mongoose.connect('mongodb://localhost:27017/Clearance1',  { useNewUrlParser: true } ).then(console.log("database connected"));
+mongoose.connect('mongodb://localhost:27017/Clearance',  { useNewUrlParser: true } ).then(console.log("database connected"));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
