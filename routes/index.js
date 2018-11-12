@@ -1,10 +1,48 @@
 var express = require('express');
+const path = require('path');
 var router = express.Router();
 let indexController = require('../controllers/indexController.js');
 let userController = require('../controllers/userController.js');
 let passport = require("passport");
 let User = require('../models/users');
 let Clearance = require('../models/clearance');
+const multer =require("multer");
+const methodOverride = require("method-override");
+
+
+const  storage = multer.diskStorage({
+  destination: './public/uploads',
+  filename: function(req, file, cb){
+    cb(null, file.fieldname + "-" + Date.now() + path.extname(file.originalname));
+  }
+})
+
+
+const upload = multer({
+  storage: storage ,
+  //limits: {fileSize: 10},
+  fileFilter: function(req, file, cb){
+    checkFileType(file, cb);
+  }
+}).single('receipt')
+
+//check file type 
+function checkFileType(file, cb){
+  //Allowed ext
+  const filetypes = /jpeg|jpg|png|gif/;
+  // check ext
+  const extname = filetypes.test(path.extname
+  (file.originalname).toLowerCase());
+  //check mime
+  const mimetype = filetypes.test(file.mimetype)
+
+  if(mimetype && extname){
+    return cb(null, true);
+  }else {
+    cb('Error: images Only!')
+  }
+}
+
 
 /* GET home page. */
 router.get('/', indexController.home);
@@ -66,6 +104,26 @@ router.post('/register/bursary', passport.authenticate('local.registerBursary',{
   failureRedirect: '/registerUnits',
   failureFlash: true
 }))
+
+router.put('/upload', function (req, res){
+  upload(req, res, (err) => {
+    if (err){
+    
+    //res.render('students', {msg : err})
+   res.send(err)
+    } else if (req.file == undefined){
+        //res.render('students', {msg : 'No image Uploaded'})
+    res.send("No image Uploaded")
+    }else{
+      console.log(req.file);
+      let userMatric = req.user.matricNo
+      Clearance.findOneAndUpdate({"matricNo": userMatric}, {$set:{"bursaryUnit.document": `/public/uploads/${req.file.filename}`}}, {new: true})
+      .then(res.send("test"))
+        //res.render('students', {msg : 'file Uploaded', file: `/public/uploads/${req.file.filename}` })      
+     // res.send("test")
+    }
+  })
+})
 
 
 router.post('/login/bursary', passport.authenticate('local.loginBursary',{

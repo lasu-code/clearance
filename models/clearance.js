@@ -10,6 +10,7 @@ let clearanceSchema = new Schema({
     buttonStatus: {type: String},
     matricNo: {type: String},
     bursaryUnit: {
+        document: {type: String},
         status: {type: String},
         message: {type: String}
     },

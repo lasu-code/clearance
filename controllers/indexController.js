@@ -34,20 +34,24 @@ exports.students = function(req, res, next){
 
           let newClearance = new Clearance();
         newClearance.studentStatus.status = true;
+        newClearance.bursaryUnit.document = null;
         newClearance.matricNo = userMatric;
-        newClearance.bursaryUnit.status = "pending"
-        newClearance.libraryUnit.status = "pending";
-        newClearance.sportCenterUnit.status = "pending";
-        newClearance.facultyUnit.status = "pending";
-        newClearance.studentAffairs.status = "pending";
-        newClearance.internalAuditUnit.status = "pending";
+        newClearance.bursaryUnit.status = "pending";
+        newClearance.libraryUnit.status = "Not Enrolled";
+        newClearance.sportCenterUnit.status = "Not Enrolled";
+        newClearance.facultyUnit.status = "Not Enrolled";
+        newClearance.studentAffairs.status = "Not Enrolled";
+        newClearance.internalAuditUnit.status = "Not Enrolled";
         
         newClearance.save()
         
           console.log(result);
+         res.render('students', {doc: newClearance})
+
+        } else {
+         res.render('students', {doc: result})
 
         }
-         res.render('students', {doc: result})
     })
 
    
