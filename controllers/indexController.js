@@ -29,19 +29,21 @@ exports.profile = function(req, res, next) {
 
 exports.students = function(req, res, next){   
   let userMatric = req.user.matricNo;
+  let userFullname = req.user.fullname;
     Clearance.findOne({"matricNo": userMatric}).then(function(result){
       if (!result){
 
           let newClearance = new Clearance();
+        newClearance.userFullName = userFullname;
         newClearance.studentStatus.status = true;
         newClearance.bursaryUnit.document = null;
         newClearance.matricNo = userMatric;
-        newClearance.bursaryUnit.status = "pending";
-        newClearance.libraryUnit.status = "Not Enrolled";
-        newClearance.sportCenterUnit.status = "Not Enrolled";
-        newClearance.facultyUnit.status = "Not Enrolled";
-        newClearance.studentAffairs.status = "Not Enrolled";
-        newClearance.internalAuditUnit.status = "Not Enrolled";
+        newClearance.bursaryUnit.status = "NOT ENROLLED";
+        newClearance.libraryUnit.status = "NOT ENROLLED";
+        newClearance.sportCenterUnit.status = "NOT ENROLLED";
+        newClearance.facultyUnit.status = "NOT ENROLLED";
+        newClearance.studentAffairs.status = "NOT ENROLLED";
+        newClearance.internalAuditUnit.status = "NOT ENROLLED";
         
         newClearance.save()
         
@@ -100,57 +102,163 @@ exports.internallogin = function(req, res, next){
 }
 
 exports.bursary = function(req, res, next){
-    res.render('bursary', {title: "busary", 
-    fname: "fawas",
-    midname: "olamilekan",
-    lastName: "kareem" ,
-    matricNo: "170115028",
-    });
-};
+  Clearance.find({"bursaryUnit.status": "PENDING"}).then((result)=>{
+    console.log(result);
+     res.render('bursary', {title: "bursary", result : result})
+
+})
+
+}
+
+exports.clearedBursary= function(req, res, next){
+  Clearance.find({"bursaryUnit.status": "CLEARED"}).then((result)=>{
+    console.log(result);
+     res.render('bursary', {title: "bursary", result : result})
+
+})
+}
+
+exports.rejectedBursary= function(req, res, next){
+  Clearance.find({"bursaryUnit.status": "REJECTED"}).then((result)=>{
+    console.log(result);
+     res.render('bursary', {title: "bursary", result : result})
+
+})
+}
+
 
 exports.library = function(req, res, next){
-    res.render('library', {title: "library", 
-    fname: "fawas",
-    midname: "olamilekan",
-    lastName: "kareem" ,
-    matricNo: "170115028",
-    });
+  Clearance.find({"bursaryUnit.status": "CLEARED", "libraryUnit.status": "PENDING"}).then((result)=>{
+    console.log(result);
+     res.render('library', {title: "Library", result : result})
+
+})
+
 };
+
+
+exports.clearedLibrary= function(req, res, next){
+  Clearance.find({"libraryUnit.status": "CLEARED"}).then((result)=>{
+    console.log(result);
+     res.render('library', {title: "Library", result : result})
+
+})
+}
+
+exports.rejectedLibrary= function(req, res, next){
+  Clearance.find({"libraryUnit.status": "REJECTED"}).then((result)=>{
+    console.log(result);
+     res.render('library', {title: "Library", result : result})
+
+})
+}
+
 
 exports.faculty = function(req, res, next){
-    res.render('faculty', {title: "faculty", 
-    fname: "fawas",
-    midname: "olamilekan",
-    lastName: "kareem" ,
-    matricNo: "170115028",
-    });
+  Clearance.find({"bursaryUnit.status": "CLEARED", "facultyUnit.status": "PENDING"}).then((result)=>{
+    console.log(result);
+     res.render('faculty', {title: "Faculty", result : result})
+
+})
+
 };
 
-exports.sport = function(req, res, next){
-    res.render('sport', {title: "Sport", 
-    fname: "fawas",
-    midname: "olamilekan",
-    lastName: "kareem" ,
-    matricNo: "170115028",
-    });
+
+exports.clearedFaculty= function(req, res, next){
+  Clearance.find({"facultyUnit.status": "CLEARED"}).then((result)=>{
+    console.log(result);
+     res.render('faculty', {title: "Faculty", result : result})
+
+})
+}
+
+exports.rejectedFaculty= function(req, res, next){
+  Clearance.find({"facultyUnit.status": "REJECTED"}).then((result)=>{
+    console.log(result);
+     res.render('faculty', {title: "Faculty", result : result})
+
+})
+}
+
+
+exports.studentaff = function(req, res, next){
+  Clearance.find({"bursaryUnit.status": "CLEARED", "studentAffairs.status": "PENDING"}).then((result)=>{
+    console.log(result);
+     res.render('student-aff', {title: "STUDENT AFFAIRS", result : result})
+
+})
+
 };
+
+
+exports.clearedStudentAffairs= function(req, res, next){
+  Clearance.find({"studentAffairs.status": "CLEARED"}).then((result)=>{
+    console.log(result);
+     res.render('student-aff', {title: "STUDENT AFFAIRS", result : result})
+
+})
+}
+
+exports.rejectedStudentAffairs= function(req, res, next){
+  Clearance.find({"studentAffairs.status": "REJECTED"}).then((result)=>{
+    console.log(result);
+     res.render('student-aff', {title: "STUDENT AFFAIRS", result : result})
+
+})
+
+}
+
+
+exports.sport = function(req, res, next){
+  Clearance.find({"bursaryUnit.status": "CLEARED", "sportCenterUnit.status": "PENDING"}).then((result)=>{
+    console.log(result);
+     res.render('sport', {title: "SPORT CENTER", result : result})
+
+})
+
+};
+
+
+exports.clearedSport= function(req, res, next){
+  Clearance.find({"sportCenterUnit.status": "CLEARED"}).then((result)=>{
+    console.log(result);
+     res.render('sport', {title: "SPORT CENTER", result : result})
+
+})
+}
+
+exports.rejectedSport= function(req, res, next){
+  Clearance.find({"sportCenterUnit.status": "REJECTED"}).then((result)=>{
+    console.log(result);
+     res.render('sport', {title: "SPORT CENTER", result : result})
+
+})
+}
 
 
 exports.internal = function(req, res, next){
-    res.render('internal', {title: "Internal-Audit", 
-    fname: "fawas",
-    midname: "olamilekan",
-    lastName: "kareem" ,
-    matricNo: "170115028",
-    });
+  Clearance.find({"bursaryUnit.status": "CLEARED", "internalAuditUnit.status": "PENDING"}).then((result)=>{
+    console.log(result);
+     res.render('internal', {title: "INTERNAL AUDIT", result : result})
+
+})
+
 };
 
-exports.studentaff = function(req, res, next){
-    res.render('student-aff', {title: "Student-Affairs", 
-    fname: "fawas",
-    midname: "olamilekan",
-    lastName: "kareem" ,
-    matricNo: "170115028",
-    });
-};
-  
+
+exports.clearedInternal= function(req, res, next){
+  Clearance.find({"internalAuditUnit.status": "CLEARED"}).then((result)=>{
+    console.log(result);
+     res.render('internal', {title: "INTERNAL AUDIT", result : result})
+
+})
+}
+
+exports.rejectedInternal= function(req, res, next){
+  Clearance.find({"internalAuditUnit.status": "REJECTED"}).then((result)=>{
+    console.log(result);
+     res.render('internal', {title: "INTERNAL AUDIT", result : result})
+
+})
+}
+

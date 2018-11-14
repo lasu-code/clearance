@@ -3,6 +3,7 @@ let Schema = mongoose.Schema;
 
 
 let clearanceSchema = new Schema({
+    userFullName: {type: String},
     studentStatus: {
         status: Boolean,
         default: false

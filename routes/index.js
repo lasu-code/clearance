@@ -71,18 +71,41 @@ router.get('/studentafflogin', indexController.studentafflogin);
 
 router.get('/bursary', isLoggedIn, indexController.bursary);
 
+router.get('/clearedBursary', isLoggedIn, indexController.clearedBursary);
+
+router.get('/rejectedBursary', isLoggedIn, indexController.rejectedBursary);
+
 router.get('/sport', isLoggedIn, indexController.sport);
+
+router.get('/clearedSport', isLoggedIn, indexController.clearedSport);
+
+router.get('/rejectedSport', isLoggedIn, indexController.rejectedSport);
 
 router.get('/library', isLoggedIn, indexController.library);
 
+router.get('/clearedLibrary', isLoggedIn, indexController.clearedLibrary);
+
+router.get('/rejectedLibrary', isLoggedIn, indexController.rejectedLibrary);
+
 router.get('/faculty', isLoggedIn, indexController.faculty);
+
+router.get('/clearedFaculty', isLoggedIn, indexController.clearedFaculty);
+
+router.get('/rejectedFaculty', isLoggedIn, indexController.rejectedFaculty);
 
 router.get('/internal', isLoggedIn, indexController.internal);
 
+router.get('/clearedInternal', isLoggedIn, indexController.clearedInternal);
+
+router.get('/rejectedInternal', isLoggedIn, indexController.rejectedInternal);
+
 router.get('/studentaff', isLoggedIn, indexController.studentaff);
 
-router.get('/registerStudent', userController.student);
+router.get('/clearedStudentAffairs', isLoggedIn, indexController.clearedStudentAffairs);
 
+router.get('/rejectedStudentAffairs', isLoggedIn, indexController.rejectedStudentAffairs);
+
+router.get('/registerStudent', userController.student);
 
 
 
@@ -117,12 +140,144 @@ router.put('/upload', function (req, res){
     }else{
       console.log(req.file);
       let userMatric = req.user.matricNo
-      Clearance.findOneAndUpdate({"matricNo": userMatric}, {$set:{"bursaryUnit.document": `/public/uploads/${req.file.filename}`}}, {new: true})
-      .then(res.send("test"))
-        //res.render('students', {msg : 'file Uploaded', file: `/public/uploads/${req.file.filename}` })      
+      Clearance.findOneAndUpdate({"matricNo": userMatric},
+       {$set:{"bursaryUnit.document": `/public/uploads/${req.file.filename}`, "bursaryUnit.status": "PENDING"}}, 
+       {new: true})
+      .then( res.redirect("/students"))
+             
      // res.send("test")
     }
   })
+})
+
+
+
+router.put('/bursaryClear', function (req, res){
+ Clearance.findByIdAndUpdate(req.body.resultId,
+  {$set:{"bursaryUnit.status": "CLEARED", "libraryUnit.status": "PENDING", "internalAuditUnit.status": "PENDING", "facultyUnit.status": "PENDING", "sportCenterUnit.status": "PENDING", "studentAffairs.status": "PENDING", }}, 
+  {new: true}).then((result)=>{
+    console.log(result)
+    res.redirect("/bursary")
+  })
+   
+})
+
+
+router.put('/bursaryReject', function (req, res){
+ Clearance.findByIdAndUpdate(req.body.studentId,
+  {$set:{"bursaryUnit.status": "REJECTED"}}, 
+  {new: true}).then((result)=>{
+    console.log(result)
+    res.redirect("/bursary")
+  })
+   
+})
+
+
+router.put('/libraryClear', function (req, res){
+ Clearance.findByIdAndUpdate(req.body.resultId,
+  {$set:{"libraryUnit.status": "CLEARED"}}, 
+  {new: true}).then((result)=>{
+    console.log(result)
+    res.redirect("/library")
+  })
+   
+})
+
+
+router.put('/libraryReject', function (req, res){
+ Clearance.findByIdAndUpdate(req.body.studentId,
+  {$set:{"libraryUnit.status": "REJECTED"}}, 
+  {new: true}).then((result)=>{
+    console.log(result)
+    res.redirect("/library")
+  })
+   
+})
+
+router.put('/facultyClear', function (req, res){
+ Clearance.findByIdAndUpdate(req.body.resultId,
+  {$set:{"facultyUnit.status": "CLEARED"}}, 
+  {new: true}).then((result)=>{
+    console.log(result)
+    res.redirect("/faculty")
+  })
+   
+})
+
+
+router.put('/facultyReject', function (req, res){
+ Clearance.findByIdAndUpdate(req.body.studentId,
+  {$set:{"facultyUnit.status": "REJECTED"}}, 
+  {new: true}).then((result)=>{
+    console.log(result)
+    res.redirect("/faculty")
+  })
+   
+})
+
+router.put('/studentaffClear', function (req, res){
+ Clearance.findByIdAndUpdate(req.body.resultId,
+  {$set:{"studentAffairs.status": "CLEARED"}}, 
+  {new: true}).then((result)=>{
+    console.log(result)
+    res.redirect("/studentaff")
+  })
+   
+})
+
+
+router.put('/studentaffReject', function (req, res){
+ Clearance.findByIdAndUpdate(req.body.studentId,
+  {$set:{"studentAffairs.status": "REJECTED"}}, 
+  {new: true}).then((result)=>{
+    console.log(result)
+    res.redirect("/studentaff")
+  })
+   
+})
+
+
+router.put('/sportReject', function (req, res){
+ Clearance.findByIdAndUpdate(req.body.studentId,
+  {$set:{"sportCenterUnit.status": "REJECTED"}}, 
+  {new: true}).then((result)=>{
+    console.log(result)
+    res.redirect("/sport")
+  })
+   
+})
+
+router.put('/sportClear', function (req, res){
+ Clearance.findByIdAndUpdate(req.body.resultId,
+  {$set:{"sportCenterUnit.status": "CLEARED"}}, 
+  {new: true}).then((result)=>{
+    console.log(result)
+    res.redirect("/sport")
+  })
+   
+})
+
+
+router.put('/internalClear', function (req, res){
+ Clearance.findByIdAndUpdate(req.body.resultId,
+  {$set:{"internalAuditUnit.status": "CLEARED"}}, 
+  {new: true}).then((result)=>{
+    console.log(result)
+    res.redirect("/internal")
+  })
+   
+})
+
+
+router.put('/internalReject', function (req, res){
+ Clearance.findByIdAndUpdate(req.body.studentId,
+  {$set:{"internalAuditUnit.status": "REJECTED"}}, 
+  {new: true}).then((result)=>{
+    console.log(result)
+    res.redirect("/internal")
+  })
+   
 })
 
 
