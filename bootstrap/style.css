@@ -1,0 +1,13 @@
+body{
+  
+}.image-background{
+    background-image: url("images/maxresdefault.jpg");
+    background-size: cover;
+    height: 600px;
+    width: auto;
+}.opacity{
+  background: black;
+  height: 700px;
+  width: auto;
+  opacity: 0.8;
+}
