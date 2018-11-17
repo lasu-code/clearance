@@ -8,6 +8,8 @@ let userSchema = new Schema({
     username: {type: String, trim: true},
     password: {type: String},
     matricNo: {type: String},
+    email: {type: String},
+    department: {type: String},
     role: {type: String},
     createdDate: {
         type: Date,

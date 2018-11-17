@@ -8,6 +8,8 @@ let User = require('../models/users');
 let Clearance = require('../models/clearance');
 const multer =require("multer");
 const methodOverride = require("method-override");
+const nodemailer = require("nodemailer");
+const keys = require("../config/keys")
 
 
 const  storage = multer.diskStorage({
@@ -49,9 +51,9 @@ router.get('/', indexController.home);
 
 router.get('/login', indexController.login);
 
-router.get('/profile', isLoggedIn, indexController.profile);
+router.get('/profile', studentLoggedIn, indexController.profile);
 
-router.get('/students', isLoggedIn, indexController.students);
+router.get('/students', studentLoggedIn, indexController.students);
 
 router.get('/main', indexController.main);
 
@@ -69,41 +71,41 @@ router.get('/internallogin', indexController.internallogin);
 
 router.get('/studentafflogin', indexController.studentafflogin);
 
-router.get('/bursary', isLoggedIn, indexController.bursary);
+router.get('/bursary', bursaryLoggedIn, indexController.bursary);
 
-router.get('/clearedBursary', isLoggedIn, indexController.clearedBursary);
+router.get('/clearedBursary', bursaryLoggedIn, indexController.clearedBursary);
 
-router.get('/rejectedBursary', isLoggedIn, indexController.rejectedBursary);
+router.get('/rejectedBursary', bursaryLoggedIn, indexController.rejectedBursary);
 
-router.get('/sport', isLoggedIn, indexController.sport);
+router.get('/sport', sportLoggedIn, indexController.sport);
 
-router.get('/clearedSport', isLoggedIn, indexController.clearedSport);
+router.get('/clearedSport', sportLoggedIn, indexController.clearedSport);
 
-router.get('/rejectedSport', isLoggedIn, indexController.rejectedSport);
+router.get('/rejectedSport', sportLoggedIn, indexController.rejectedSport);
 
-router.get('/library', isLoggedIn, indexController.library);
+router.get('/library', libraryLoggedIn, indexController.library);
 
-router.get('/clearedLibrary', isLoggedIn, indexController.clearedLibrary);
+router.get('/clearedLibrary', libraryLoggedIn, indexController.clearedLibrary);
 
-router.get('/rejectedLibrary', isLoggedIn, indexController.rejectedLibrary);
+router.get('/rejectedLibrary', libraryLoggedIn, indexController.rejectedLibrary);
 
-router.get('/faculty', isLoggedIn, indexController.faculty);
+router.get('/faculty', facultyLoggedIn, indexController.faculty);
 
-router.get('/clearedFaculty', isLoggedIn, indexController.clearedFaculty);
+router.get('/clearedFaculty', facultyLoggedIn, indexController.clearedFaculty);
 
-router.get('/rejectedFaculty', isLoggedIn, indexController.rejectedFaculty);
+router.get('/rejectedFaculty', facultyLoggedIn, indexController.rejectedFaculty);
 
-router.get('/internal', isLoggedIn, indexController.internal);
+router.get('/internal', internalLoggedIn, indexController.internal);
 
-router.get('/clearedInternal', isLoggedIn, indexController.clearedInternal);
+router.get('/clearedInternal', internalLoggedIn, indexController.clearedInternal);
 
-router.get('/rejectedInternal', isLoggedIn, indexController.rejectedInternal);
+router.get('/rejectedInternal', internalLoggedIn, indexController.rejectedInternal);
 
-router.get('/studentaff', isLoggedIn, indexController.studentaff);
+router.get('/studentaff', affairsLoggedIn, indexController.studentaff);
 
-router.get('/clearedStudentAffairs', isLoggedIn, indexController.clearedStudentAffairs);
+router.get('/clearedStudentAffairs', affairsLoggedIn, indexController.clearedStudentAffairs);
 
-router.get('/rejectedStudentAffairs', isLoggedIn, indexController.rejectedStudentAffairs);
+router.get('/rejectedStudentAffairs', affairsLoggedIn, indexController.rejectedStudentAffairs);
 
 router.get('/registerStudent', userController.student);
 
@@ -172,6 +174,61 @@ router.put('/bursaryReject', function (req, res){
   })
    
 })
+
+
+router.put('/bursaryComment', function (req, res){
+
+    let Transport = nodemailer.createTransport({
+      service: "gmail",
+      secure: false,
+      port: 25, 
+      auth: {
+        user: "phawazzzy@gmail.com",
+        pass: keys.keys.password
+      },
+      tls: {
+        rejectUnauthorized: false
+      }
+    });
+
+    //sending email with SMTP, configuration using SMTP settings
+    let mailOptions = {
+      from: "lasu clearance - <phawazzzy@gmail.com>", //sender adress
+      to: req.body.userMail, 
+      subject: "Mail from Bursary" ,
+      html: req.body.comment 
+    };
+
+    Transport.sendMail(mailOptions, (error, info)=>{
+      if (error){
+        console.log(error);
+        console.log(mailOptions.html);
+       // res.send("email could not send due to error:" + error);
+      }else{
+        console.log(info);
+        console.log(mailOptions.html);
+        
+       // res.send("email has been sent successfully");
+      }
+      res.redirect("/bursary")
+    });
+    
+
+
+
+
+
+
+
+ Clearance.findByIdAndUpdate(req.body.studentId,
+  {$set:{"bursaryUnit.status": "REJECTED"}}, 
+  {new: true}).then((result)=>{
+    console.log(result)
+    res.redirect("/bursary")
+  })
+   
+})
+
 
 
 router.put('/libraryClear', function (req, res){
@@ -359,10 +416,81 @@ router.get('/logoutStudentaff', function(req, res, next){
 module.exports = router;
 
 
-function  isLoggedIn(req, res,next){
-  if (req.isAuthenticated()){
+function  studentLoggedIn(req, res,next){
+  if (req.user.role=="student" && req.isAuthenticated()){
+    console.log(req.isAuthenticated())
     return next()
   }
 
+
   res.redirect('/login')
+}
+
+
+function  libraryLoggedIn(req, res,next){
+  
+  if (req.user.role=="library" && req.isAuthenticated()){
+    return next()
+  }
+     res.redirect('/login')
+}
+
+function  bursaryLoggedIn(req, res,next){
+  
+  if (req.user.role=="bursary" && req.isAuthenticated()){
+    return next()
+  }
+
+     res.redirect('/login')
+
+}
+
+function  sportLoggedIn(req, res,next){
+  
+  if (req.user.role=="sport" && req.isAuthenticated()){
+    return next()
+  }
+
+     res.redirect('/login')
+
+}
+
+function  internalLoggedIn(req, res,next){
+  
+  if (req.user.role=="library" && req.isAuthenticated()){
+    return next()
+  }
+
+     res.redirect('/login')
+
+}
+
+function  affairsLoggedIn(req, res,next){
+  
+  if (req.user.role=="student-affairs" && req.isAuthenticated()){
+    return next()
+  }
+
+     res.redirect('/login')
+
+}
+
+function  facultyLoggedIn(req, res,next){
+  
+  if (req.user.role=="faculty" && req.isAuthenticated()){
+    return next()
+  }
+
+     res.redirect('/login')
+
+}
+
+function  internalLoggedIn(req, res,next){
+  
+  if (req.user.role=="internal-audit" && req.isAuthenticated()){
+    return next()
+  }
+
+     res.redirect('/login')
+
 }

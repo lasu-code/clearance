@@ -14,13 +14,15 @@ exports.login = function(req, res, next) {
 exports.profile = function(req, res, next) {
     let name = req.user.fullname;
     let matricNo = req.user.matricNo;
+    let email = req.user.email;
+    let department= req.user.department;
     
     Clearance.findOne({"matricNo": matricNo}).then(function(result){
       if (result){
         result.buttonStatus = "View Clearance Progress";
-        res.render("profile", {name: name, matricNo: matricNo, button: result.buttonStatus})
+        res.render("profile", {name: name, email:email,  matricNo: matricNo, button: result.buttonStatus, department: department})
       } else if (!result){
-        res.render("profile", {name: name, matricNo: matricNo, button: "Start Clearance Process"})
+        res.render("profile", {name: name, email:email, matricNo: matricNo, button: "Start Clearance Process", department: department})
       }
       })
 
@@ -30,11 +32,16 @@ exports.profile = function(req, res, next) {
 exports.students = function(req, res, next){   
   let userMatric = req.user.matricNo;
   let userFullname = req.user.fullname;
+  let userDepartment = req.user.department;
+  let userName = req.user.username;
+   let userEmail = req.user.email;
     Clearance.findOne({"matricNo": userMatric}).then(function(result){
       if (!result){
 
           let newClearance = new Clearance();
         newClearance.userFullName = userFullname;
+        newClearance.department = userDepartment;
+        newClearance.email = userEmail;
         newClearance.studentStatus.status = true;
         newClearance.bursaryUnit.document = null;
         newClearance.matricNo = userMatric;
@@ -48,10 +55,10 @@ exports.students = function(req, res, next){
         newClearance.save()
         
           console.log(result);
-         res.render('students', {doc: newClearance})
+         res.render('students', {doc: newClearance, userName: userName})
 
         } else {
-         res.render('students', {doc: result})
+         res.render('students', {doc: result, userName: userName})
 
         }
     })
@@ -102,26 +109,70 @@ exports.internallogin = function(req, res, next){
 }
 
 exports.bursary = function(req, res, next){
-  Clearance.find({"bursaryUnit.status": "PENDING"}).then((result)=>{
-    console.log(result);
-     res.render('bursary', {title: "bursary", result : result})
+  
+  
+  Clearance.find({}).then((result)=>{
+    //console.log(result.length);
+    console.log(result) 
+    pendingCount = 0;
+    clearedCount = 0;
+    rejectCount = 0;
+    pendingResult = [];
+    
+    for (let i = 0; i < result.length; i++) {
+      if (result[i].bursaryUnit.status == "PENDING") {
+        pendingCount++
+        pendingResult.push(result[i])
+      }
+      else if (result[i].bursaryUnit.status == "CLEARED") {
+        clearedCount++
+        
+      }else if (result[i].bursaryUnit.status == "REJECTED") {
+        rejectCount++
+        
+      }
+      console.log(pendingCount)
+      console.log(clearedCount)
+      console.log(rejectCount)
+      var element = result[i];
+      }
+    
+     res.render('bursary', {title: "bursary", result : pendingResult, pendingCount, clearedCount, rejectCount })
 
 })
+ 
+//   Clearance.find({"bursaryUnit.status": "PENDING"}).then((result)=>{
+//     //console.log(result.length);
+//     let length = result.length
+//      res.render('bursary', {title: "bursary", result : result})
 
+// })
+  
 }
 
 exports.clearedBursary= function(req, res, next){
-  Clearance.find({"bursaryUnit.status": "CLEARED"}).then((result)=>{
-    console.log(result);
-     res.render('bursary', {title: "bursary", result : result})
+  
+ 
+  // let pending = Clearance.find({"bursaryUnit.status": "PENDING"}).length.exec()
+  // let cleared = Clearance.find({"bursaryUnit.status": "CLEARED"}).length.exec()
+  // let rejected = Clearance.find({"bursaryUnit.status": "REJECTED"}).length.exec() 
+    Clearance.find({"bursaryUnit.status": "CLEARED"}).then((doc)=>{  
+    console.log(doc.length);
+     res.render('bursary', {title: "bursary", result : doc})
 
 })
 }
 
 exports.rejectedBursary= function(req, res, next){
-  Clearance.find({"bursaryUnit.status": "REJECTED"}).then((result)=>{
-    console.log(result);
-     res.render('bursary', {title: "bursary", result : result})
+  
+  
+  // let pending = Clearance.find({"bursaryUnit.status": "PENDING"}).length.exec()
+  // let cleared = Clearance.find({"bursaryUnit.status": "CLEARED"}).length.exec()
+  // let rejected = Clearance.find({"bursaryUnit.status": "REJECTED"}).length.exec() 
+  
+  Clearance.find({"bursaryUnit.status": "REJECTED"}).then((file)=>{
+        console.log(file);
+     res.render('bursary', {title: "bursary", result : file, })
 
 })
 }
@@ -130,7 +181,7 @@ exports.rejectedBursary= function(req, res, next){
 exports.library = function(req, res, next){
   Clearance.find({"bursaryUnit.status": "CLEARED", "libraryUnit.status": "PENDING"}).then((result)=>{
     console.log(result);
-     res.render('library', {title: "Library", result : result})
+     res.render('library', {title: "Library", result : result,})
 
 })
 

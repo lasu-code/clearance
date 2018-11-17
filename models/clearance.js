@@ -4,6 +4,8 @@ let Schema = mongoose.Schema;
 
 let clearanceSchema = new Schema({
     userFullName: {type: String},
+    department: {type: String},
+    email: {type: String},    
     studentStatus: {
         status: Boolean,
         default: false
