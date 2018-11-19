@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
     <link rel="shortcut icon" href="assets/images/logo-114x123-2.png" type="image/x-icon">
     <meta name="description" content="Website Maker Description">
-    <title>burseryDashboard</title>
+    <title><%=role%> <%=title%></title>
 
     <link rel="stylesheet" href="assets/web/assets/mobirise-icons/mobirise-icons.css">
     <link rel="stylesheet" href="assets/tether/tether.min.css">
@@ -80,9 +80,9 @@
 
                 <h1 class="public">
 
-                    <span class="author" itemprop="author">Bursery</a></span>
+                    <span class="author" itemprop="author"><%=role%></a></span>
 
-                    <strong itemprop="name">Dashboard</strong>
+                    <strong itemprop="name"><%=title%></strong>
 
                 </h1>
 
@@ -96,7 +96,7 @@
                         data-hotkey="g c" itemprop="url"  onclick="Toggle()">
 
                         <span itemprop="name">Pending</span>
-                        <span class="Counter">0</span>
+                        <span class="Counter">10</span>
                         <meta content="1" itemprop="position">
                     </a> </span>
 
@@ -105,7 +105,7 @@
                         itemprop="url" onclick="Toggle()">
 
                         <span itemprop="name">Cleared</span>
-                        <span class="Counter">0</span>
+                        <span class="Counter">8</span>
                         <meta content="2" itemprop="position">
                     </a> </span>
 
@@ -114,7 +114,7 @@
                         itemprop="url" onclick="Toggle()">
 
                         <span itemprop="name">Rejected</span>
-                        <span class="Counter">0</span>
+                        <span class="Counter">2</span>
                         <meta content="2" itemprop="position">
                     </a> </span>
             </nav>
@@ -306,11 +306,6 @@
 
     <!-- Footer-->
     <section class="cid-r7f8cmuQ6c mbr-reveal" id="footer5-a">
-
-
-
-
-
         <div class="container">
             <!-- <div class="media-container-row">
                 
@@ -381,7 +376,7 @@
     </section>
 
 
-
+  <!-- Scripts -->
     <script src="assets/web/assets/jquery/jquery.min.js"></script>
     <script src="assets/popper/popper.min.js"></script>
     <script src="assets/tether/tether.min.js"></script>
@@ -399,5 +394,4 @@
 
     <input name="animation" type="hidden">
 </body>
-
 </html>

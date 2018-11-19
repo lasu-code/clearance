@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 const clearanceController = require('../controllers/clearanceControllers');
+const unitsController = require('../controllers/dashboardControllers');
 
 
 /* GET home page. */
@@ -10,16 +11,13 @@ const clearanceController = require('../controllers/clearanceControllers');
 // });
 
 router.get('/', clearanceController.homepage);
-router.get('/unitSignup', clearanceController.signup);
-router.post('/units',  clearanceController.units);
-router.get('/units',  clearanceController.units);
 
-router.get('/authentication', clearanceController.authentication);
-router.get('/studentDashboard', clearanceController.studentDashboard);
-router.post('/studentDashboard', clearanceController.studentDashboard);
-router.get('/bursary', clearanceController.bursary);
-router.get('/unit', clearanceController.unitdashboard);
-router.get('/bursary4', clearanceController.bursary4);
+router.get('/bursery', unitsController.bursery);
+router.get('/library', unitsController.library);
+router.get('/sportsCentre', unitsController.sportsCentre);
+router.get('/studentAffairs', unitsController.studentAffairs);
+router.get('/faculties', unitsController.faculties);
+router.get('/internalAudits', unitsController.internalAudits);
 
 
 module.exports = router;
