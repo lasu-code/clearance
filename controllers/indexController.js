@@ -109,7 +109,7 @@ exports.internallogin = function(req, res, next){
 }
 
 exports.bursary = function(req, res, next){
-  
+                 
   
   Clearance.find({}).then((result)=>{
     //console.log(result.length);
@@ -137,51 +137,122 @@ exports.bursary = function(req, res, next){
       var element = result[i];
       }
     
-     res.render('bursary', {title: "bursary", result : pendingResult, pendingCount, clearedCount, rejectCount })
+     res.render('bursary', {title: "bursary", result : pendingResult, pendingCount, clearedCount, rejectCount})
 
 })
  
-//   Clearance.find({"bursaryUnit.status": "PENDING"}).then((result)=>{
-//     //console.log(result.length);
-//     let length = result.length
-//      res.render('bursary', {title: "bursary", result : result})
-
-// })
   
 }
 
-exports.clearedBursary= function(req, res, next){
+
+exports.clearedBursary = function(req, res, next){
+
   
- 
-  // let pending = Clearance.find({"bursaryUnit.status": "PENDING"}).length.exec()
-  // let cleared = Clearance.find({"bursaryUnit.status": "CLEARED"}).length.exec()
-  // let rejected = Clearance.find({"bursaryUnit.status": "REJECTED"}).length.exec() 
-    Clearance.find({"bursaryUnit.status": "CLEARED"}).then((doc)=>{  
-    console.log(doc.length);
-     res.render('bursary', {title: "bursary", result : doc})
+  Clearance.find({}).then((result)=>{
+    //console.log(result.length);
+    console.log(result) 
+    pendingCount = 0;
+    clearedCount = 0;
+    rejectCount = 0;
+  
+    clearedResult = [];
+  
+    
+    for (let i = 0; i < result.length; i++) {
+      if (result[i].bursaryUnit.status == "PENDING") {
+        pendingCount++
+  
+      }
+      else if (result[i].bursaryUnit.status == "CLEARED") {
+        clearedCount++
+        clearedResult.push(result[i])
+        
+      }else if (result[i].bursaryUnit.status == "REJECTED") {
+        rejectCount++
+          
+      }
+      console.log(pendingCount)
+      console.log(clearedCount)
+      console.log(rejectCount)
+      var element = result[i];
+      }
+      
+     res.render('clearBursary', {title: "bursary", pendingCount, clearedCount, rejectCount, doc:clearedResult})
 
 })
+
 }
 
-exports.rejectedBursary= function(req, res, next){
+exports.rejectedBursary = function(req, res, next){
   
+
+  Clearance.find({}).then((result)=>{
+    //console.log(result.length);
+    console.log(result) 
+    pendingCount = 0;
+    clearedCount = 0;
+    rejectCount = 0;
   
-  // let pending = Clearance.find({"bursaryUnit.status": "PENDING"}).length.exec()
-  // let cleared = Clearance.find({"bursaryUnit.status": "CLEARED"}).length.exec()
-  // let rejected = Clearance.find({"bursaryUnit.status": "REJECTED"}).length.exec() 
+    rejectedResult = [];
   
-  Clearance.find({"bursaryUnit.status": "REJECTED"}).then((file)=>{
-        console.log(file);
-     res.render('bursary', {title: "bursary", result : file, })
+    
+    for (let i = 0; i < result.length; i++) {
+      if (result[i].bursaryUnit.status == "PENDING") {
+        pendingCount++
+  
+      }
+      else if (result[i].bursaryUnit.status == "CLEARED") {
+        clearedCount++
+       
+        
+      }else if (result[i].bursaryUnit.status == "REJECTED") {
+        rejectCount++
+        rejectedResult.push(result[i])   
+      }
+      console.log(pendingCount)
+      console.log(clearedCount)
+      console.log(rejectCount)
+      var element = result[i];
+      }
+  
+      
+     res.render('rejectBursary', {title: "bursary", pendingCount, clearedCount, rejectCount, file: rejectedResult})
 
 })
+
+
 }
 
 
 exports.library = function(req, res, next){
-  Clearance.find({"bursaryUnit.status": "CLEARED", "libraryUnit.status": "PENDING"}).then((result)=>{
-    console.log(result);
-     res.render('library', {title: "Library", result : result,})
+  
+  Clearance.find({}).then((result)=>{
+    //console.log(result.length);
+    console.log(result) 
+    pendingCount = 0;
+    clearedCount = 0;
+    rejectCount = 0;
+    pendingResult = [];
+    
+    for (let i = 0; i < result.length; i++) {
+      if (result[i].bursaryUnit.status == "CLEARED" && result[i].libraryUnit.status == "PENDING") {
+        pendingCount++
+        pendingResult.push(result[i])
+      }
+      else if (result[i].bursaryUnit.status == "CLEARED" && result[i].libraryUnit.status == "CLEARED") {
+        clearedCount++
+        
+      }else if (result[i].bursaryUnit.status == "CLEARED" && result[i].libraryUnit.status == "REJECTED") {
+        rejectCount++
+        
+      }
+      console.log(pendingCount)
+      console.log(clearedCount)
+      console.log(rejectCount)
+      var element = result[i];
+      }
+    
+     res.render('library', {title: "Library", result : pendingResult, pendingCount, clearedCount, rejectCount})
 
 })
 
@@ -189,19 +260,79 @@ exports.library = function(req, res, next){
 
 
 exports.clearedLibrary= function(req, res, next){
-  Clearance.find({"libraryUnit.status": "CLEARED"}).then((result)=>{
-    console.log(result);
-     res.render('library', {title: "Library", result : result})
+  
+  Clearance.find({}).then((result)=>{
+    //console.log(result.length);
+    console.log(result) 
+    pendingCount = 0;
+    clearedCount = 0;
+    rejectCount = 0;
+  
+    clearedResult = [];
+  
+    
+    for (let i = 0; i < result.length; i++) {
+      if (result[i].bursaryUnit.status == "CLEARED" && result[i].libraryUnit.status == "PENDING") {
+        pendingCount++
+  
+      }
+      else if (result[i].bursaryUnit.status == "CLEARED" && result[i].libraryUnit.status == "CLEARED") {
+        clearedCount++
+        clearedResult.push(result[i])
+        
+      }else if (result[i].bursaryUnit.status == "CLEARED" && result[i].libraryUnit.status == "REJECTED") {
+        rejectCount++
+          
+      }
+      console.log(pendingCount)
+      console.log(clearedCount)
+      console.log(rejectCount)
+      var element = result[i];
+      }
+      
+     res.render('clearLibrary', {title: "Library", pendingCount, clearedCount, rejectCount, doc:clearedResult})
 
 })
+
 }
 
 exports.rejectedLibrary= function(req, res, next){
-  Clearance.find({"libraryUnit.status": "REJECTED"}).then((result)=>{
-    console.log(result);
-     res.render('library', {title: "Library", result : result})
+
+
+  Clearance.find({}).then((result)=>{
+    //console.log(result.length);
+    console.log(result) 
+    pendingCount = 0;
+    clearedCount = 0;
+    rejectCount = 0;
+  
+    rejectedResult = [];
+  
+    
+    for (let i = 0; i < result.length; i++) {
+      if (result[i].bursaryUnit.status == "CLEARED" && result[i].libraryUnit.status == "PENDING") {
+        pendingCount++
+  
+      }
+      else if (result[i].bursaryUnit.status == "CLEARED" && result[i].libraryUnit.status == "CLEARED") {
+        clearedCount++
+       
+        
+      }else if (result[i].bursaryUnit.status == "CLEARED" && result[i].libraryUnit.status == "REJECTED") {
+        rejectCount++
+        rejectedResult.push(result[i])   
+      }
+      console.log(pendingCount)
+      console.log(clearedCount)
+      console.log(rejectCount)
+      var element = result[i];
+      }
+  
+      
+     res.render('rejectLibrary', {title: "Library", pendingCount, clearedCount, rejectCount, file: rejectedResult})
 
 })
+
 }
 
 

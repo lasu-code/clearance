@@ -12,6 +12,8 @@
 /* @media all and (min-width:1012px) */
 .pagehead {
 	border-bottom: 1px solid #e1e4e8;
+	height: 106px;
+	position: static;
 }
 .repohead.experiment-repo-nav {
 	background-color: #fafbfc;
@@ -518,4 +520,7 @@ details-menu {
 	color: #24292e;
 	font-weight: 600;
 }
+
+
+
 

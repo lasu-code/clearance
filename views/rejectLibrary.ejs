@@ -27,6 +27,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="js/bootstrap-.min.js">
     <link rel="stylesheet" href="css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="/public/js/bursary2.js">
 
     <link rel="stylesheet" href="/public/assets/user/style.css">
     <link rel="stylesheet" href="https:maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -93,8 +94,8 @@
                 itemscope="" data-pjax="#js-repo-pjax-container">
 
                 <span itemprop="itemListElement" itemtype="http://schema.org/ListItem" itemscope="">
-                    <a class="js-selected-navigation-item  reponav-item current" aria-current="page" href="/library"
-                        data-hotkey="g c" itemprop="url"    >
+                    <a class="js-selected-navigation-item  reponav-item " aria-current="page" href="/library"
+                        data-hotkey="g c" itemprop="url"  >
 
                         <span itemprop="name">Pending</span>
                         <span class="Counter"><%=pendingCount%></span>
@@ -111,8 +112,8 @@
                     </a> </span>
 
                 <span itemprop="itemListElement" itemtype="http://schema.org/ListItem" itemscope="">
-                    <a class="js-selected-navigation-item reponav-item " href="/rejectedLibrary" data-hotkey="g i" data-selected-links="repo_issues repo_labels repo_milestones /Robogeek95/Baba-ijebu-main/issues"
-                        itemprop="url" >
+                    <a class="js-selected-navigation-item reponav-item current" href="/rejectedLibrary" data-hotkey="g i" data-selected-links="repo_issues repo_labels repo_milestones /Robogeek95/Baba-ijebu-main/issues"
+                        itemprop="url">
 
                         <span itemprop="name">Rejected</span>
                         <span class="Counter"><%=rejectCount%></span>
@@ -140,42 +141,6 @@
 
                           
              <script>
-                 
-function showPending() {
-
-     let x = document.getElementById("pend");
-    let y = document.getElementById("clear");
-    let z = document.getElementById("reject");
-
-        x.style.display = "block";
-        y.style.display = "none";
-        z.style.display = "none";
-    }
-
-
- function showCleared() {
-
-     let x = document.getElementById("pend");
-    let y = document.getElementById("clear");
-    let z = document.getElementById("reject");
-
-        x.style.display = "none";
-        y.style.display = "block";
-        z.style.display = "none";
-    
- }
-
-     function showRejected() {
-
-     let x = document.getElementById("pend");
-    let y = document.getElementById("clear");
-    let z = document.getElementById("reject");
-
-        x.style.display = "none";
-        y.style.display = "none";
-        z.style.display = "block";
-      
-     }          
 
   function Toggle() {   
     var i;
@@ -200,17 +165,28 @@ function showPending() {
 
     </header>
 
-    <!--Table-->
+
+
+
+
+
+
+
+
+
+
+
+
+    <!--Table3-->
     
-    <section class="section-table cid-r7f77huOtX" id="pending">
+    <section class="section-table cid-r7f77huOtX" id="rejected">
 
-        <div id="pend" style="display: block" > 
-
+        <div id="reject" style="display: block" >
 
 
         <div class="container container-table">
             <div class="table-title pl-3 Ttitle">
-                <h1 class="h1">PENDING LIST</h1>
+                <h1 class="h1">REJECTED LIST</h1>
             </div>
 
             <div class="table-wrapper">
@@ -226,7 +202,7 @@ function showPending() {
                     </div>
                 </div>
 
-                <div class="container scroll"></div>
+                <div class="container scroll">
                 <table class="table table-hover table-striped isSearch table-hover" cellspacing="0">
                     <thead>
                         <tr>
@@ -239,13 +215,13 @@ function showPending() {
                     </thead>
                     <tbody>
                                                   
-                             <% for(i=0; i<result.length; i++){%>
+                             <% for(i=0; i<file.length; i++){%>
         
-       <td> <b> <%= result[i].userFullName %> </b> </td>
-       <td > <%= result[i].matricNo %>  </td>
-       <td > <%= result[i].department %>  </td>       
+       <td> <b> <%= file[i].userFullName %> </b> </td>
+       <td > <%= file[i].matricNo %>  </td>
+       <td > <%= file[i].department %>  </td>       
        <td>          <button type="button" data-toggle="modal" class="btn btn-info btn-sm" class="details"
-                                        data-target="#myModal<%=[i]%>">show
+                                        data-target="#myThirdModal<%=[i]%>">show
                                         details</button>
 
 
@@ -253,7 +229,7 @@ function showPending() {
                                          <!-- Modal -->
         <!-- Trigger the modal with a button -->
                                              
-        <div id="myModal<%=[i]%>" class="modal fade" role="dialog">
+        <div id="myThirdModal<%=[i]%>" class="modal fade" role="dialog">
             <div class="modal-dialog">
 
                 <!-- Modal content-->
@@ -270,10 +246,10 @@ function showPending() {
                         <div class="container-fluid">
 
                             <ul class="list-group">
-                               
-                                <li class="list-group-item"> <%= result[i].userFullName %>
+    
+                                <li class="list-group-item"> <%= file[i].userFullName %>
                                     </li>
-                                <li class="list-group-item"> <%= result[i].matricNo %>
+                                <li class="list-group-item"> <%= file[i].matricNo %>
                                     
                                 </li>
 
@@ -284,24 +260,19 @@ function showPending() {
                             <h3>Transaction Receipt</h3>
                             
                             <!-- transaction slip -->
-                            <div class="transaction slip" >
-
-                                <img src="<%= result[i].bursaryUnit.document %>" width="200px" height="200px" alt="profile" srcset="">  
-                        
-                                
-                                 
-                             
+                            <div class="transaction slip">
+                                <img src="<%= file[i].bursaryUnit.document %>"
+                            
+                                width="200px" height="200px" alt="profile" srcset="">
                             </div>
-
-              
-                              <br> <br>
+                            <br> <br>
                             
 
                             
                             <div class="form-group">
                                 <form action="/bursaryComment?_method=PUT" method="POST">
                                     <label for="comment">Comment:</label>
-                                    <input type="hidden" name="userMail" value=<%= result[i].email %>>
+                                    <input type="hidden" name="userMail" value=<%= file[i].email %>>
                                     <textarea name="comment" class="form-control" rows="5" id="comment" ></textarea>
                                     <br>
                                     <button class="btn btn-primary" type="submit">post</button>
@@ -310,7 +281,7 @@ function showPending() {
                                      
                             <div class="btn-group">
                                 <form action="/bursaryClear?_method=PUT" method="POST" > 
-                                <input type="hidden" name="resultId" value=<%= result[i]._id %>>
+                                <input type="hidden" name="resultId" value=<%= file[i]._id %>>
                                     <button type="submit" class="btn btn-success">CLEAR</button>
                                 </div>
                                 </form> 
@@ -318,7 +289,7 @@ function showPending() {
                                 
                                 <div class="btn-group">
                                     <form action="/bursaryReject?_method=PUT" method="POST">
-                                        <input type="hidden" name="studentId" value=<%= result[i]._id %>>
+                                        <input type="hidden" name="studentId" value=<%= file[i]._id %>>
                                     <button type="submit" class="btn btn-danger">REJECT</button>
                                 </div>
                                 </form>
@@ -375,13 +346,7 @@ function showPending() {
         </div>
     </section>
 
-
-
-
-
-
-
-
+ 
 
 
 
