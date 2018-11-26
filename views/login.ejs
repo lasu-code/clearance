@@ -12,12 +12,20 @@
 </head>
 <body>
     <span class="alert alert-light" role="alert">
-  <%=loginError%>
+  
 </span>
 
+
 <center>
-<div id="yo" class="alert alert-warning" style="width: 500px " role="alert">
-  <%=wrongMatric%> 
+<div id="yoo" class="alert alert-warning" style="width: 400px;" role="alert">
+  <h5> <%=loginError%> </h5>
+</div>
+</center>
+
+
+<center>
+<div id="yo" class="alert alert-warning" style="width: 400px;" role="alert">
+  <h5> <%=wrongMatric%> </h5>
 </div>
 </center>
 
@@ -45,16 +53,36 @@
 </div>
 
 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   <script src="plugins/jQuery/jquery-2.2.3.min.js"></script>
+<!-- Other js files -->
+<script src="plugins/jQuery/bootstrap.min.js"></script>
+
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script src="plugins/jQuery/bootstrap.min.js"></script>
 
 
-    <!-- <script type="text/javascript">    
-        jQuery(function($){
-          let lasu =  $('#yo');
+
+
+    <script type="text/javascript">    
+        
+        if($.trim($('#yo').text()).length === 0) {
+            $('#yo').css("display", "none")
+        }else{
+            $('#yo').css("display", "block")
           
         }
-</script> -->
+
+
+
+        if($.trim($('#yoo').text()).length === 0) {
+            $('#yoo').css("display", "none")
+        }else{
+            $('#yoo').css("display", "block")
+          
+        }
+
+        </script>
 
 </body>
 
