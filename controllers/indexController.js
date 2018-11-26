@@ -7,7 +7,7 @@ exports.home = function(req, res, next) {
 
 exports.login = function(req, res, next) {
   let loginError = req.flash('loginError');
-  let wrongMatric = req.flash('wrongMatric')
+  let wrongMatric = req.flash('wrongMatric');
   res.render('login',  {loginError: loginError, wrongMatric: wrongMatric})
 }
 
@@ -51,13 +51,17 @@ exports.students = function(req, res, next){
         newClearance.facultyUnit.status = "NOT ENROLLED";
         newClearance.studentAffairs.status = "NOT ENROLLED";
         newClearance.internalAuditUnit.status = "NOT ENROLLED";
+        newClearance.fullyCleared.status = "Awaiting Approval";
         
+
         newClearance.save()
         
+
           console.log(result);
          res.render('students', {doc: newClearance, userName: userName})
 
         } else {
+              console.log(result)
          res.render('students', {doc: result, userName: userName})
 
         }

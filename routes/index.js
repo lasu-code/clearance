@@ -142,10 +142,16 @@ router.put('/upload', function (req, res){
     }else{
       console.log(req.file);
       let userMatric = req.user.matricNo
-      Clearance.findOneAndUpdate({"matricNo": userMatric},
+      Clearance.findOneAndUpdate({"matricNo": userMatric, "bursaryUnit.status": "NOT ENROLLED"},
        {$set:{"bursaryUnit.document": `/public/uploads/${req.file.filename}`, "bursaryUnit.status": "PENDING"}}, 
        {new: true})
-      .then( res.redirect("/students"))
+      .then((result)=>{
+          if (result) {
+            res.redirect("/students")
+          } else {
+            res.send("error")
+          }
+      })
              
      // res.send("test")
     }
@@ -156,13 +162,15 @@ router.put('/upload', function (req, res){
 
 router.put('/bursaryClear', function (req, res){
  Clearance.findByIdAndUpdate(req.body.resultId,
-  {$set:{"bursaryUnit.status": "CLEARED", "libraryUnit.status": "PENDING", "internalAuditUnit.status": "PENDING", "facultyUnit.status": "PENDING", "sportCenterUnit.status": "PENDING", "studentAffairs.status": "PENDING", }}, 
+  {$set:{"bursaryUnit.status": "CLEARED", "libraryUnit.status": "PENDING", "internalAuditUnit.status": "PENDING", "facultyUnit.status": "PENDING",
+   "sportCenterUnit.status": "PENDING", "studentAffairs.status": "PENDING", }}, 
   {new: true}).then((result)=>{
     console.log(result)
     res.redirect("/bursary")
   })
    
 })
+
 
 
 router.put('/bursaryReject', function (req, res){
@@ -203,7 +211,8 @@ router.put('/bursaryComment', function (req, res){
       if (error){
         console.log(error);
         console.log(mailOptions.html);
-       // res.send("email could not send due to error:" + error);
+        
+        //res.send("email could not send due to error:" + error);
       }else{
         console.log(info);
         console.log(mailOptions.html);
@@ -233,7 +242,7 @@ router.put('/bursaryComment', function (req, res){
 
 router.put('/libraryClear', function (req, res){
  Clearance.findByIdAndUpdate(req.body.resultId,
-  {$set:{"libraryUnit.status": "CLEARED"}}, 
+  {$set:{"libraryUnit.status": "CLEARED"}},  
   {new: true}).then((result)=>{
     console.log(result)
     res.redirect("/library")

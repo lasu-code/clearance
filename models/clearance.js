@@ -36,6 +36,9 @@ let clearanceSchema = new Schema({
     internalAuditUnit: {
         status: {type: String},
         message: {type: String}
+    },
+    fullyCleared: {
+        status: {type: String}
     }
 })
 

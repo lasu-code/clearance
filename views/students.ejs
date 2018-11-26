@@ -33,7 +33,8 @@
 
 </head>
 <body>
-     <div class="main-head"><img src="/public/images/lasu.jpg" height="50px" width="50px"> <p>LASU CLEARANCE </p> </div> 
+     <div class="main-head"><img src="/public/images/lasu.jpg" height="50px" width="50px"> <p>LASU CLEARANCE </p>
+        </div> 
 
      <div class="wrapper1">
          
@@ -42,7 +43,7 @@
         <div class="bhead-h1"><h1 class="head-text">Welcome <%=userName%>! You have currently enrolled for the LASU Clearance process.</h1>
             
             <div class="bhead-p"><p>Important Notice You must be cleared first at the Bursary Interface before you can proceed to other process.
-                 <br> Any issues that might occur during the registration process based on some factors shall be passed down to you in the Information portal</p>
+                 <br> Any issues that might occur during the clearance process based on some factors shall be passed down to your mail</p>
                 
         </div>
         </div>
@@ -52,8 +53,10 @@
             
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><p> BURSARY </p> <br> <p style="margin-top: -10px">STATUS: <b> <%=doc.bursaryUnit.status%> </b> </p> </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"> <button class="btn btn-primary btn1" style="float: right; background-color: #148BB1" data-toggle="modal" data-target="#bursary">REGISTER</button> </div>
-                </div> 
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                        <button class="btn btn-primary btn1" id="yoo" style="float: right; background-color: #148BB1; <%if(doc.bursaryUnit.status != "NOT ENROLLED") {%> display: none; <%}%>" data-toggle="modal" data-target="#bursary">REGISTER</button> </div>
+                
+                  </div> 
 
         </div>
         <div class="col-lg-1 col-md-1 col-xs-1 col-sm-1"></div>
@@ -126,7 +129,16 @@
 
      </div>
 
- <div class="body-content final" style=" background: linear-gradient(151.05deg,#02ccba,#a951ed); text-align: center;"> <h1 style="padding-bottom: 60px; color: white">CLEARED</h1> </div>    
+ <div class="body-content final" style=" background: linear-gradient(151.05deg,#02ccba,#a951ed); text-align: center;">
+      <h1 style="padding-bottom: 60px; color: white">  
+           <%if(doc.bursaryUnit.status == "CLEARED" && doc.libraryUnit.status == "CLEARED" && doc.internalAuditUnit.status == "CLEARED" && doc.facultyUnit.status == "CLEARED"&& doc.sportCenterUnit.status == "CLEARED" && doc.studentAffairs.status == "CLEARED") {%> 
+            
+            CLEARED 
+           <%} else   {  %>
+             Awaiting Approval
+              <%}%>
+    </h1>
+     </div>    
      
 </div>
 
@@ -162,7 +174,7 @@
   </div>
 
 
-
+  <script src=".././routes/index.js"></script>
 
 </body>
 </html>

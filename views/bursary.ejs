@@ -32,9 +32,21 @@
     <link rel="stylesheet" href="https:maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
 
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    
+
 </head>
 
 <body>
+    <main>
     <header>
         <!--Page navigation header-->
         <section class="menu cid-qTkzRZLJNu" once="menu" id="menu1-3">
@@ -202,13 +214,13 @@ function showPending() {
 
     <!--Table-->
     
-    <section class="section-table cid-r7f77huOtX" id="pending">
+    <section class="section-table yo cid-r7f77huOtX" id="pending">
 
-        <div id="pend" style="display: block" > 
+        <div id="pend" style="display: block"> 
 
 
 
-        <div class="container container-table">
+        <div class="container container-table ">
             <div class="table-title pl-3 Ttitle">
                 <h1 class="h1">PENDING LIST</h1>
             </div>
@@ -252,12 +264,14 @@ function showPending() {
 
                                          <!-- Modal -->
         <!-- Trigger the modal with a button -->
-                                             
-        <div id="myModal<%=[i]%>" class="modal fade" role="dialog">
+        <div id="myModal<%=[i]%>" class="modal fade" role="dialog" >
+            
             <div class="modal-dialog">
+        <div >
+                
 
                 <!-- Modal content-->
-                <div class="modal-content">
+                <div class="modal-content" id="yoo" style="width:800px; margin-left: -36%">
                     <div class="modal-header">
                         <h4 class="modal-title">
                            STUDENT DETAILS</h4>
@@ -286,8 +300,9 @@ function showPending() {
                             <!-- transaction slip -->
                             <div class="transaction slip" >
 
-                                <img src="<%= result[i].bursaryUnit.document %>" width="200px" height="200px" alt="profile" srcset="">  
-                        
+                                <img id="my_image" src="<%= result[i].bursaryUnit.document %>" width="200px" height="200px" alt="profile" srcset="">  
+                        <br>
+                        <h4 style="color: orange">Click image to view full screen</h4>
                                 
                                  
                              
@@ -331,11 +346,12 @@ function showPending() {
                     </div>
                 </div>
 
-            </div>
-        </div>
-
+</div>            
+</div>
+</div>
         
-   
+
+     </div>
 
     </div>
 
@@ -399,10 +415,46 @@ function showPending() {
     <script src="/public/assets/datatables/data-tables.bootstrap4.min.js"></script>
     <script src="/public/assets/dropdown/js/script.min.js"></script>
     <script src="/public/assets/theme/js/script.js"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   <script src="plugins/jQuery/jquery-2.2.3.min.js"></script>
+<!-- Other js files -->
+<script src="plugins/jQuery/bootstrap.min.js"></script>
+
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="plugins/jQuery/bootstrap.min.js"></script>
+
+
+    <script type="text/javascript">    
+        jQuery(function($){
+            $('#my_image').click(function(){
+                let img = $(this).attr("src");
+                let appear_image = "<div id='appear_image_div' onClick='closeImage()'> <h3 class='btnn' style='color: white; opacity:0.5; cursor: pointer'> X </h3>  </div>";
+                appear_image = appear_image.concat("<img id='appear_image' src='"+img+"'/>");
+                
+                $('#yoo').append(appear_image);
+                
+                             
+            })
+        })
+
+        function closeImage(){
+            $('#appear_image_div').remove();
+            $("#appear_image").remove();
+         //   $('#yoo').css({'z-index': '20', 'position': 'absolute'})
+              
+
+        }
+
+
+//         $('#myModal').modal('toggle');
+// $('#myModal').modal('show');
+// $('#myModal').modal('hide');
+</script>
 
   
 
     <input name="animation" type="hidden">
+    </main>
 </body>
 
 </html>
