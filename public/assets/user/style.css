@@ -540,12 +540,12 @@ details-menu {
 	font-weight: 600;
 }
 
-#my_image{
+.my_image{
 	width: 200px;
 	margin: 20px; cursor: pointer;
 }
 
-#appear_image_div{
+.appear_image_div{
 	width: 100%;
 	height: 100%;
 	position: absolute;
@@ -555,7 +555,7 @@ details-menu {
 	background: #002447;
 }
 
-#appear_image{
+.appear_image{
 	width: 100%;
 	height: 95%;
 	display: block;

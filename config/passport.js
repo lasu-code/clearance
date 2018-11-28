@@ -32,6 +32,9 @@ passport.use('local.registerStudent', new LocalStrategy({
          newUser.matricNo = req.body.matricNo;
          newUser.email = req.body.email;
          newUser.department = req.body.department,
+         newUser.phone = req.body.phone,
+         newUser.year = req.body.year,         
+         newUser.address = req.body.address,
         newUser.password = newUser.generateHash(req.body.password);
         newUser.role = req.body.role
 

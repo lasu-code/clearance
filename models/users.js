@@ -10,6 +10,9 @@ let userSchema = new Schema({
     matricNo: {type: String},
     email: {type: String},
     department: {type: String},
+    address: {type: String},
+    phone: {type: String},
+    year: {type: String},
     role: {type: String},
     createdDate: {
         type: Date,

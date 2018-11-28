@@ -271,7 +271,7 @@ function showPending() {
                 
 
                 <!-- Modal content-->
-                <div class="modal-content" id="yoo" style="width:800px; margin-left: -36%">
+                <div class="modal-content yoo"  style="width:800px; margin-left: -36%">
                     <div class="modal-header">
                         <h4 class="modal-title">
                            STUDENT DETAILS</h4>
@@ -300,7 +300,7 @@ function showPending() {
                             <!-- transaction slip -->
                             <div class="transaction slip" >
 
-                                <img id="my_image" src="<%= result[i].bursaryUnit.document %>" width="200px" height="200px" alt="profile" srcset="">  
+                                <img class="my_image" src="<%= result[i].bursaryUnit.document %>" width="200px" height="200px" alt="profile" srcset="">  
                         <br>
                         <h4 style="color: orange">Click image to view full screen</h4>
                                 
@@ -425,26 +425,35 @@ function showPending() {
 
 
     <script type="text/javascript">    
-        jQuery(function($){
-            $('#my_image').click(function(){
+
+
+
+  jQuery(function($){
+    
+            $('.my_image').click(function(){
                 let img = $(this).attr("src");
-                let appear_image = "<div id='appear_image_div' onClick='closeImage()'> <h3 class='btnn' style='color: white; opacity:0.5; cursor: pointer'> X </h3>  </div>";
-                appear_image = appear_image.concat("<img id='appear_image' src='"+img+"'/>");
+                let appear_image = "<div class='appear_image_div' onClick='closeImage()'> <h3 class='btnn' style='color: white; opacity:0.5; cursor: pointer'> X </h3>  </div>";
+                appear_image = appear_image.concat("<img class='appear_image' src='"+img+"'/>");
                 
-                $('#yoo').append(appear_image);
+                $('.yoo').append(appear_image);
                 
                              
             })
         })
 
         function closeImage(){
-            $('#appear_image_div').remove();
-            $("#appear_image").remove();
+            $('.appear_image_div').remove();
+            $(".appear_image").remove();
          //   $('#yoo').css({'z-index': '20', 'position': 'absolute'})
               
 
         }
 
+
+
+
+    
+      
 
 //         $('#myModal').modal('toggle');
 // $('#myModal').modal('show');
