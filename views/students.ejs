@@ -12,6 +12,9 @@
     <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://js.paystack.co/v1/inline.js"></script>
+<!-- <script src="../public/js/paystack.js"></script> -->
+
 
 
 
@@ -157,6 +160,12 @@
         </button>
         </div>
         <div class="modal-body">
+                <form action="/payment?_method=PUT" method="POST" > 
+                
+                    <button class="btn btn-primary btn1" type="button" onclick="payWithPaystack()"> Pay alumni fee</button> 
+               </form>
+               <br> 
+               <hr>
 
           <h5>Upload Transaction Receipt</h5>
          <p> <%= typeof msg != "undefined" ? msg : "" %> </p> 
@@ -177,6 +186,35 @@
 
 
   <script src=".././routes/index.js"></script>
+
+  <script>
+  function payWithPaystack(){
+    var handler = PaystackPop.setup({
+        key: 'pk_test_2ea4a13fc1876b4e594d05f90282e112fcd8b0fb',
+
+      email: '<%= userEmail%>',
+      amount: 100000,
+      ref: ''+Math.floor((Math.random() * 1000000000) + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
+      metadata: {
+         custom_fields: [
+            {
+                display_name: "Mobile Number",
+                variable_name: "mobile_number",
+                value: "+2348012345678"
+            }
+         ]
+      },
+      callback: function(response){
+          
+          alert('success. transaction ref is ' + response.reference);
+      },
+      onClose: function(){
+          alert('window closed');
+      }
+    });
+    handler.openIframe();
+  }
+  </script>
 
 </body>
 </html>
