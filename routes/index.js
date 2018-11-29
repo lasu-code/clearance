@@ -647,58 +647,58 @@ router.post('/api/savePaystackResponse', function(req, res, next){
 
       if(errs.length==0)
         {
-          // verify the payment
-//           var http = require("https");
-//           var api_secret_key = "";
+         // verify the payment
+          var http = require("https");
+          var api_secret_key = "";
 
-//           var option ={
-// "method": "GET",
-// "hostname": [
-//   "api",
-//   "co"
-// ],
-// "path": [
-//   "transaction",
-//   "verify",
-//   req.body.trans_reference
-// ],
-// "headers":{
-//   "cache-control": "no-cache",
-//   "Authorization": "Bearer "+ api_secret_key
-// }
+          var option ={
+"method": "GET",
+"hostname": [
+  "api",
+  "co"
+],
+"path": [
+  "transaction",
+  "verify",
+  req.body.trans_reference
+],
+"headers":{
+  "cache-control": "no-cache",
+  "Authorization": "Bearer "+ api_secret_key
+}
 
-// };
+};
 
-// var req = http.request(options, function (res){
-//   var chunks = [];
+var req = http.request(options, function (res){
+  var chunks = [];
 
-//   res.on("data", function(chunk){
-//     chunks.push(chunk)
-//   });
-//   res.on("end", function(){
-//     var body = Buffer.concat(chunks);
-
-
-//     var res = JSON.parse(body);
-//     if(res.data.status=="success")
-//       {
-
-//       }
-
-//     console.log(body.tostring());
-//   });
-// });
-
-// req.end();
+  res.on("data", function(chunk){
+    chunks.push(chunk)
+  });
+  res.on("end", function(){
+    var body = Buffer.concat(chunks);
 
 
-paystack.transactions.verify(req.body.trans_reference, function(error, body) {
-  if(error){
-res.json({"err":"Unknow error: "+error});
-  } 
+    var res = JSON.parse(body);
+    if(res.data.status=="success")
+      {
+console.log("succes")
+      }
 
-  if(body.data.status=="success")
-    {
+    console.log(body.tostring());
+  });
+});
+
+req.end();
+
+
+// paystack.transactions.verify(req.body.trans_reference, function(error, body) {
+//   if(error){
+// res.json({"err":"Unknow error: "+error});
+//   } 
+
+//   if(body.data.status=="success")
+//     {
 
       // update user data....
 
@@ -709,15 +709,16 @@ res.json({"err":"Unknow error: "+error});
   //   console.log(result)
   // })
 
-  console.log("yoyoyoyoyoyoyo")
+//   console.log("yoyoyoyoyoyoyo")
 
-      res.json({"success":true})
-    }
-});
+//       res.json({"success":true})
+//     }
+// });
 
-            res.json({"name": "hello"});  
+//             res.json({"name": "hello"});  
         } else 
         {
+          console.log("failure")
           res.json(JSON.stringify(errs));
         }
 });
