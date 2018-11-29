@@ -94,7 +94,7 @@
 
                 <h1 class="public">
 
-                    <span class="author" itemprop="author">Internal Audit</a></span>
+                    <span class="author" itemprop="author">Faculty</a></span>
 
                     <strong itemprop="name">Dashboard</strong>
                 </h1>
@@ -105,7 +105,7 @@
                 itemscope="" data-pjax="#js-repo-pjax-container">
 
                 <span itemprop="itemListElement" itemtype="http://schema.org/ListItem" itemscope="">
-                    <a class="js-selected-navigation-item  reponav-item current" aria-current="page" href="/internal"
+                    <a class="js-selected-navigation-item  reponav-item " aria-current="page" href="/faculty"
                         data-hotkey="g c" itemprop="url"    >
 
                         <span itemprop="name">Pending</span>
@@ -114,7 +114,7 @@
                     </a> </span>
 
                 <span itemprop="itemListElement" itemtype="http://schema.org/ListItem" itemscope="">
-                    <a class="js-selected-navigation-item reponav-item" href="/clearedInternal" data-hotkey="g i" data-selected-links="repo_issues repo_labels repo_milestones /Robogeek95/Baba-ijebu-main/issues"
+                    <a class="js-selected-navigation-item reponav-item" href="/clearedFaculty" data-hotkey="g i" data-selected-links="repo_issues repo_labels repo_milestones /Robogeek95/Baba-ijebu-main/issues"
                         itemprop="url"  >
 
                         <span itemprop="name">Cleared</span>
@@ -123,16 +123,16 @@
                     </a> </span>
 
                 <span itemprop="itemListElement" itemtype="http://schema.org/ListItem" itemscope="">
-                    <a class="js-selected-navigation-item reponav-item " href="/rejectedInternal" data-hotkey="g i" data-selected-links="repo_issues repo_labels repo_milestones /Robogeek95/Baba-ijebu-main/issues"
+                    <a class="js-selected-navigation-item reponav-item current" href="/rejectedFaculty" data-hotkey="g i" data-selected-links="repo_issues repo_labels repo_milestones /Robogeek95/Baba-ijebu-main/issues"
                         itemprop="url" >
 
                         <span itemprop="name">Rejected</span>
-                        <span class="Counter"><%=rejectCount%></span>   
+                        <span class="Counter"><%=rejectCount%></span>
                         <meta content="2" itemprop="position">
                     </a> </span>
                      
 <span itemprop="itemListElement" itemtype="http://schema.org/ListItem" itemscope="" style="float: right">
-                    <a class="js-selected-navigation-item reponav-item " href="/logoutInternal" data-hotkey="g i" data-selected-links="repo_issues repo_labels repo_milestones /Robogeek95/Baba-ijebu-main/issues"
+                    <a class="js-selected-navigation-item reponav-item " href="/logoutFaculty" data-hotkey="g i" data-selected-links="repo_issues repo_labels repo_milestones /Robogeek95/Baba-ijebu-main/issues"
                         itemprop="url" >
 
                         <span itemprop="name">Logout</span>
@@ -222,7 +222,7 @@ function showPending() {
 
         <div class="container container-table ">
             <div class="table-title pl-3 Ttitle">
-                <h1 class="h1">PENDING LIST</h1>
+                <h1 class="h1">REJECTED LIST</h1>
             </div>
 
             <div class="table-wrapper">
@@ -251,11 +251,11 @@ function showPending() {
                     </thead>
                     <tbody>
                                                   
-                             <% for(i=0; i<result.length; i++){%>
+                             <% for(i=0; i<file.length; i++){%>
         
-       <td> <b> <%= result[i].userFullName %> </b> </td>
-       <td > <%= result[i].matricNo %>  </td>
-       <td > <%= result[i].department %>  </td>       
+       <td> <b> <%= file[i].userFullName %> </b> </td>
+       <td > <%= file[i].matricNo %>  </td>
+       <td > <%= file[i].department %>  </td>       
        <td>          <button type="button" data-toggle="modal" class="btn" style="background-color: #31B0D5; color: white" class="details"
                                         data-target="#myModal<%=[i]%>">show
                                         details</button>
@@ -285,9 +285,9 @@ function showPending() {
 
                             <ul class="list-group">
                                 
-                                <li class="list-group-item"> <%= result[i].userFullName %>
+                                <li class="list-group-item"> <%= file[i].userFullName %>
                                     </li>
-                                <li class="list-group-item"> <%= result[i].matricNo %>
+                                <li class="list-group-item"> <%= file[i].matricNo %>
                                     
                                 </li>
 
@@ -300,7 +300,7 @@ function showPending() {
                             <!-- transaction slip -->
                             <div class="transaction slip" >
 
-                                <img class="my_image" src="<%= result[i].bursaryUnit.document %>" width="200px" height="200px" alt="profile" srcset="">  
+                                <img class="my_image" src="<%= file[i].bursaryUnit.document %>" width="200px" height="200px" alt="profile" srcset="">  
                         <br>
                         <h4 style="color: orange">Click image to view full screen</h4>
                                 
@@ -314,9 +314,9 @@ function showPending() {
 
                             
                             <div class="form-group">
-                                <form action="/internalComment?_method=PUT" method="POST">
+                                <form action="/facultyComment?_method=PUT" method="POST">
                                     <label for="comment">Comment:</label>
-                                    <input type="hidden" name="userMail" value=<%= result[i].email %>>
+                                    <input type="hidden" name="userMail" value=<%= file[i].email %>>
                                     <textarea name="comment" class="form-control" rows="5" id="comment" ></textarea>
                                     <br>
                                     <button class="btn btn-primary" type="submit">post</button>
@@ -324,16 +324,16 @@ function showPending() {
                             </div>
                                      
                             <div class="btn-group">
-                                <form action="/internalClear?_method=PUT" method="POST" > 
-                                <input type="hidden" name="resultId" value=<%= result[i]._id %>>
+                                <form action="/facultyClear?_method=PUT" method="POST" > 
+                                <input type="hidden" name="resultId" value=<%= file[i]._id %>>
                                     <button type="submit" class="btn btn-success">CLEAR</button>
                                 </div>
                                 </form> 
 
                                 
                                 <div class="btn-group">
-                                    <form action="/internalReject?_method=PUT" method="POST">
-                                        <input type="hidden" name="studentId" value=<%= result[i]._id %>>
+                                    <form action="/facultyReject?_method=PUT" method="POST">
+                                        <input type="hidden" name="studentId" value=<%= file[i]._id %>>
                                     <button type="submit" class="btn btn-danger">REJECT</button>
                                 </div>
                                 </form>
@@ -467,6 +467,14 @@ function showPending() {
 </body>
 
 </html>
+
+
+
+
+
+
+
+
 
 
 

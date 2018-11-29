@@ -35,15 +35,53 @@
 
 </head>
 <body>
-     <div class="main-head"><img src="/public/images/lasu.jpg" height="50px" width="50px"> <p>LASU CLEARANCE 
-                <div class="circleBase type2"> 
+     <div class="main-head row">
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                <table>
+                    <tr>
+                        <td><img src="/public/images/lasu.jpg" height="50px" width="50px"></td>
+                        <td>   <p>LASU CLEARANCE </p>  </td>
+                    </tr>
+                </table>
+
+                
+            </div>
+
+
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-4"></div>
+                    <div class="col-lg-4 col-md-3 col-sm-4"></div>
+                    <div class="col-lg-4 col-md-4 col-sm-4">
+   <table>
+                    <tr>
+                        <td>
+                             <div class="circleBase type2"> 
                     <a href="/profile" style="text-decoration: none">  
                     <center>
-                        <h2 style="color: white; margin-top:2px; font-family: 'Slabo 27px', serif; font-weight: 2px">O</h2>
+                        <img src="http://studentservices.lasu.edu.ng/returningstudents/images/stud_image/150114001.jpg" width="40px" height="40px" class="circleBase" alt="">
                     </center>
                     </a>
-                </div> 
-                <a href="/logout" style="float: right">Log Out</a>
+                </div>
+                        </td>
+                        <td style="padding-left: 30px;">
+                <a href="/logout">Log Out</a>
+
+                        </td>                        
+                    </tr>
+                </table>
+
+
+                    </div>
+                    
+                </div>
+             
+
+                 
+
+
+            </div>
+               
       
 </div>
      <div class="wrapper1">
@@ -209,6 +247,29 @@ function payWithPaystack(){
       },
       callback: function(response){
           
+        var data = "mat_number=<%=userMatric %>&paystack_response="+ response.reference;
+
+        var xhr = new XMLHttpRequest();
+        xhr.withCredentials = true;
+
+        xhr.addEventListener("readystatechange", function () {
+        if (this.readyState === 4) {
+            console.log(this.responseText);
+            var res = JSON.parse(this.responseText);
+            if(res.success)
+            {
+
+                alert("paid ")
+            }
+        }
+        });
+
+        xhr.open("POST", "http://localhost:3000/api/savePaystackResponse");
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.setRequestHeader("cache-control", "no-cache");
+
+        xhr.send(data);
+
           alert('success. transaction ref is ' + response.reference);
       },
       onClose: function(){

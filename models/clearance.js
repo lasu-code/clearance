@@ -40,6 +40,7 @@ let clearanceSchema = new Schema({
     fullyCleared: {
         status: {type: String}
     },
+    paystack: {type: Boolean},
     payment: {
       type: Boolean, default: false}
 })

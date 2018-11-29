@@ -242,11 +242,11 @@ function showPending() {
                 <table class="table table-hover table-striped isSearch table-hover" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>NAME</th>
-                            <th>MATRIC</th>
+                            <th style="background-color: #0232AF; color: white">NAME</th>
+                            <th style="background-color: #0232AF; color: white" >MATRIC</th>
                             
-                            <th>DEPARTMENT</th>
-                            <th>DETAILS</th>
+                            <th style="background-color: #0232AF; color: white">DEPARTMENT</th>
+                            <th style="background-color: #0232AF; color: white">DETAILS</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -256,7 +256,7 @@ function showPending() {
        <td> <b> <%= result[i].userFullName %> </b> </td>
        <td > <%= result[i].matricNo %>  </td>
        <td > <%= result[i].department %>  </td>       
-       <td>          <button type="button" data-toggle="modal" class="btn btn-info btn-sm" class="details"
+       <td>          <button type="button" data-toggle="modal" class="btn" style="background-color: #31B0D5; color: white" class="details"
                                         data-target="#myModal<%=[i]%>">show
                                         details</button>
 

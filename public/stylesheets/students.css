@@ -19,8 +19,6 @@
 }
 
 .main-head p{
-    position: absolute;
-    left: 100px;
     font-size: 30px;
     font-family: 'Montserrat', sans-serif;
 }
@@ -68,16 +66,13 @@ bb{
 
 .circleBase {
     border-radius: 50%;
-    behavior: url(PIE.htc); /* remove if you don't care about IE8 */
-    margin-left: 1100px;
     }
 
 
 .type2 {
     width: 40px;
     height: 40px;
-    background-color: #0288D1;    
+    background-color: white;    
     border: 1px solid #7D838C;
-    
-    
+     
 }

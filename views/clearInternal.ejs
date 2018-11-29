@@ -27,26 +27,15 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="js/bootstrap-.min.js">
     <link rel="stylesheet" href="css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="/public/js/bursary2.js">
 
     <link rel="stylesheet" href="/public/assets/user/style.css">
     <link rel="stylesheet" href="https:maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
 
-
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-
-    <!-- Latest compiled JavaScript -->
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    
-
 </head>
 
 <body>
-    <main>
     <header>
         <!--Page navigation header-->
         <section class="menu cid-qTkzRZLJNu" once="menu" id="menu1-3">
@@ -105,8 +94,8 @@
                 itemscope="" data-pjax="#js-repo-pjax-container">
 
                 <span itemprop="itemListElement" itemtype="http://schema.org/ListItem" itemscope="">
-                    <a class="js-selected-navigation-item  reponav-item current" aria-current="page" href="/internal"
-                        data-hotkey="g c" itemprop="url"    >
+                    <a class="js-selected-navigation-item  reponav-item " aria-current="page" href="/internal"
+                        data-hotkey="g c" itemprop="url" >
 
                         <span itemprop="name">Pending</span>
                         <span class="Counter"><%=pendingCount%></span>
@@ -114,8 +103,8 @@
                     </a> </span>
 
                 <span itemprop="itemListElement" itemtype="http://schema.org/ListItem" itemscope="">
-                    <a class="js-selected-navigation-item reponav-item" href="/clearedInternal" data-hotkey="g i" data-selected-links="repo_issues repo_labels repo_milestones /Robogeek95/Baba-ijebu-main/issues"
-                        itemprop="url"  >
+                    <a class="js-selected-navigation-item reponav-item current" href="/clearedInternal" data-hotkey="g i" data-selected-links="repo_issues repo_labels repo_milestones /Robogeek95/Baba-ijebu-main/issues"
+                        itemprop="url" >
 
                         <span itemprop="name">Cleared</span>
                         <span class="Counter"><%=clearedCount%></span>
@@ -127,11 +116,12 @@
                         itemprop="url" >
 
                         <span itemprop="name">Rejected</span>
-                        <span class="Counter"><%=rejectCount%></span>   
+                        <span class="Counter"><%=rejectCount%></span>
                         <meta content="2" itemprop="position">
                     </a> </span>
                      
-<span itemprop="itemListElement" itemtype="http://schema.org/ListItem" itemscope="" style="float: right">
+
+              <span itemprop="itemListElement" itemtype="http://schema.org/ListItem" itemscope="" style="float: right">
                     <a class="js-selected-navigation-item reponav-item " href="/logoutInternal" data-hotkey="g i" data-selected-links="repo_issues repo_labels repo_milestones /Robogeek95/Baba-ijebu-main/issues"
                         itemprop="url" >
 
@@ -140,6 +130,7 @@
                         <meta content="2" itemprop="position">
                     </a> </span>
 
+
             </nav>
 
 
@@ -147,82 +138,33 @@
 
          
 
-
-
-
-                          
-             <script>
-                 
-function showPending() {
-
-     let x = document.getElementById("pend");
-    let y = document.getElementById("clear");
-    let z = document.getElementById("reject");
-
-        x.style.display = "block";
-        y.style.display = "none";
-        z.style.display = "none";
-    }
-
-
- function showCleared() {
-
-     let x = document.getElementById("pend");
-    let y = document.getElementById("clear");
-    let z = document.getElementById("reject");
-
-        x.style.display = "none";
-        y.style.display = "block";
-        z.style.display = "none";
-    
- }
-
-     function showRejected() {
-
-     let x = document.getElementById("pend");
-    let y = document.getElementById("clear");
-    let z = document.getElementById("reject");
-
-        x.style.display = "none";
-        y.style.display = "none";
-        z.style.display = "block";
-      
-     }          
-
-  function Toggle() {   
-    var i;
-    // let tabcontent = document.getElementsByClassName("tabcontent");
-    let statusnav = document.getElementsByClassName("reponav-item");
-  
-    for (i = 0; i < statusnav.length; i++) {
-        //Hides the tabcontent
-        // tabcontent[i].style.display = "none";
-       
-        //Makes the tablinks inactive
-         statusnav[i].className = statusnav[i].className.replace("current", "");
-    }
-     event.currentTarget.className += " current";
-    // document.getElementById(groupName).style.display = "block";
-    //displays the current tablink as active.
-};
-
-            </script> 
-
         </div>
 
     </header>
 
-    <!--Table-->
-    
-    <section class="section-table yo cid-r7f77huOtX" id="pending">
-
-        <div id="pend" style="display: block"> 
 
 
 
-        <div class="container container-table ">
+
+
+
+
+
+
+
+
+
+<!-- //Table two -->
+  
+
+  <section class="section-table yo cid-r7f77huOtX" id="cleared">
+
+
+        <div id="clear" style="display: block" >
+
+        <div class="container container-table">
             <div class="table-title pl-3 Ttitle">
-                <h1 class="h1">PENDING LIST</h1>
+                <h1 class="h1">CLEARED LIST</h1>
             </div>
 
             <div class="table-wrapper">
@@ -238,128 +180,25 @@ function showPending() {
                     </div>
                 </div>
 
-                <div class="container scroll"></div>
+                   <div class="container scroll">
                 <table class="table table-hover table-striped isSearch table-hover" cellspacing="0">
                     <thead>
                         <tr>
-                            <th style="background-color: #0232AF; color: white">NAME</th>
-                            <th style="background-color: #0232AF; color: white" >MATRIC</th>
+                            <th>NAME</th>
+                            <th>MATRIC</th>
                             
-                            <th style="background-color: #0232AF; color: white">DEPARTMENT</th>
-                            <th style="background-color: #0232AF; color: white">DETAILS</th>
+                            <th>DEPARTMENT</th>
+                            
                         </tr>
                     </thead>
                     <tbody>
                                                   
-                             <% for(i=0; i<result.length; i++){%>
+                             <% for(i=0; i<doc.length; i++){%>
         
-       <td> <b> <%= result[i].userFullName %> </b> </td>
-       <td > <%= result[i].matricNo %>  </td>
-       <td > <%= result[i].department %>  </td>       
-       <td>          <button type="button" data-toggle="modal" class="btn" style="background-color: #31B0D5; color: white" class="details"
-                                        data-target="#myModal<%=[i]%>">show
-                                        details</button>
-
-
-
-                                         <!-- Modal -->
-        <!-- Trigger the modal with a button -->
-        <div id="myModal<%=[i]%>" class="modal fade" role="dialog" >
-            
-            <div class="modal-dialog">
-        <div >
-                
-
-                <!-- Modal content-->
-                <div class="modal-content yoo"  style="width:800px; margin-left: -36%">
-                    <div class="modal-header">
-                        <h4 class="modal-title">
-                           STUDENT DETAILS</h4>
-
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    </div>
-
-                    <div class="modal-body">
-                        <!-- document -->
-                        <div class="container-fluid">
-
-                            <ul class="list-group">
-                                
-                                <li class="list-group-item"> <%= result[i].userFullName %>
-                                    </li>
-                                <li class="list-group-item"> <%= result[i].matricNo %>
-                                    
-                                </li>
-
-                            </ul>
-
-
-
-                            <h3>Transaction Receipt</h3>
-                            
-                            <!-- transaction slip -->
-                            <div class="transaction slip" >
-
-                                <img class="my_image" src="<%= result[i].bursaryUnit.document %>" width="200px" height="200px" alt="profile" srcset="">  
-                        <br>
-                        <h4 style="color: orange">Click image to view full screen</h4>
-                                
-                                 
-                             
-                            </div>
-
-              
-                              <br> <br>
-                            
-
-                            
-                            <div class="form-group">
-                                <form action="/internalComment?_method=PUT" method="POST">
-                                    <label for="comment">Comment:</label>
-                                    <input type="hidden" name="userMail" value=<%= result[i].email %>>
-                                    <textarea name="comment" class="form-control" rows="5" id="comment" ></textarea>
-                                    <br>
-                                    <button class="btn btn-primary" type="submit">post</button>
-                                </form>
-                            </div>
-                                     
-                            <div class="btn-group">
-                                <form action="/internalClear?_method=PUT" method="POST" > 
-                                <input type="hidden" name="resultId" value=<%= result[i]._id %>>
-                                    <button type="submit" class="btn btn-success">CLEAR</button>
-                                </div>
-                                </form> 
-
-                                
-                                <div class="btn-group">
-                                    <form action="/internalReject?_method=PUT" method="POST">
-                                        <input type="hidden" name="studentId" value=<%= result[i]._id %>>
-                                    <button type="submit" class="btn btn-danger">REJECT</button>
-                                </div>
-                                </form>
-
-
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-
-</div>            
-</div>
-</div>
-        
-
-     </div>
-
-    </div>
-
-
-
-
-
-        </td>
+       <td> <b> <%= doc[i].userFullName %> </b> </td>
+       <td > <%= doc[i].matricNo %>  </td>
+       <td > <%= doc[i].department %>  </td>       
+      
        </tr>
             <% } %>
 
@@ -369,7 +208,7 @@ function showPending() {
 
                 </table>
 
-
+</div>
 
                 <div class="container table-info-container">
                     <div class="row info">
@@ -390,14 +229,9 @@ function showPending() {
         </div>
         </div>
     </section>
+     
 
-
-
-
-
-
-
-
+ 
 
 
 
@@ -415,61 +249,13 @@ function showPending() {
     <script src="/public/assets/datatables/data-tables.bootstrap4.min.js"></script>
     <script src="/public/assets/dropdown/js/script.min.js"></script>
     <script src="/public/assets/theme/js/script.js"></script>
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-   <script src="plugins/jQuery/jquery-2.2.3.min.js"></script>
-<!-- Other js files -->
-<script src="plugins/jQuery/bootstrap.min.js"></script>
-
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-<script src="plugins/jQuery/bootstrap.min.js"></script>
-
-
-    <script type="text/javascript">    
-
-
-
-  jQuery(function($){
-    
-            $('.my_image').click(function(){
-                let img = $(this).attr("src");
-                let appear_image = "<div class='appear_image_div' onClick='closeImage()'> <h3 class='btnn' style='color: white; opacity:0.5; cursor: pointer'> X </h3>  </div>";
-                appear_image = appear_image.concat("<img class='appear_image' src='"+img+"'/>");
-                
-                $('.yoo').append(appear_image);
-                
-                             
-            })
-        })
-
-        function closeImage(){
-            $('.appear_image_div').remove();
-            $(".appear_image").remove();
-         //   $('#yoo').css({'z-index': '20', 'position': 'absolute'})
-              
-
-        }
-
-
-
-
-    
-      
-
-//         $('#myModal').modal('toggle');
-// $('#myModal').modal('show');
-// $('#myModal').modal('hide');
-</script>
 
   
 
     <input name="animation" type="hidden">
-    </main>
 </body>
 
 </html>
-
-
-
 
 
 

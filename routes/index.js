@@ -1,3 +1,4 @@
+
 var express = require('express');
 const path = require('path');
 var router = express.Router();
@@ -10,6 +11,8 @@ const multer =require("multer");
 const methodOverride = require("method-override");
 const nodemailer = require("nodemailer");
 const keys = require("../config/keys")
+var paystack = require('paystack')('secret_key');
+
 
 
 const  storage = multer.diskStorage({
@@ -224,21 +227,213 @@ router.put('/bursaryComment', function (req, res){
       res.redirect("/bursary")
     });
     
-
-
-
-
-
-
-
- Clearance.findByIdAndUpdate(req.body.studentId,
-  {$set:{"bursaryUnit.status": "REJECTED"}}, 
-  {new: true}).then((result)=>{
-    console.log(result)
-    res.redirect("/bursary")
-  })
    
 })
+
+
+
+
+router.put('/libraryComment', function (req, res){
+
+    let Transport = nodemailer.createTransport({
+      service: "gmail",
+      secure: false,
+      port: 25, 
+      auth: {
+        user: "phawazzzy@gmail.com",
+        pass: keys.keys.password
+      },
+      tls: {
+        rejectUnauthorized: false
+      }
+    });
+
+    //sending email with SMTP, configuration using SMTP settings
+    let mailOptions = {
+      from: "lasu clearance - <phawazzzy@gmail.com>", //sender adress
+      to: req.body.userMail, 
+      subject: "Mail from Bursary" ,
+      html: req.body.comment 
+    };
+
+    Transport.sendMail(mailOptions, (error, info)=>{
+      if (error){
+        console.log(error);
+        console.log(mailOptions.html);
+        
+        //res.send("email could not send due to error:" + error);
+      }else{
+        console.log(info);
+        console.log(mailOptions.html);
+        
+       // res.send("email has been sent successfully");
+      }
+      res.redirect("/library")
+    });
+})
+
+
+router.put('/facultyComment', function (req, res){
+
+    let Transport = nodemailer.createTransport({
+      service: "gmail",
+      secure: false,
+      port: 25, 
+      auth: {
+        user: "phawazzzy@gmail.com",
+        pass: keys.keys.password
+      },
+      tls: {
+        rejectUnauthorized: false
+      }
+    });
+
+    //sending email with SMTP, configuration using SMTP settings
+    let mailOptions = {
+      from: "lasu clearance - <phawazzzy@gmail.com>", //sender adress
+      to: req.body.userMail, 
+      subject: "Mail from Faculty" ,
+      html: req.body.comment 
+    };
+
+    Transport.sendMail(mailOptions, (error, info)=>{
+      if (error){
+        console.log(error);
+        console.log(mailOptions.html);
+        
+        //res.send("email could not send due to error:" + error);
+      }else{
+        console.log(info);
+        console.log(mailOptions.html);
+        
+       // res.send("email has been sent successfully");
+      }
+      res.redirect("/faculty")
+    });
+}) 
+
+
+    
+router.put('/sportComment', function (req, res){
+
+    let Transport = nodemailer.createTransport({
+      service: "gmail",
+      secure: false,
+      port: 25, 
+      auth: {
+        user: "phawazzzy@gmail.com",
+        pass: keys.keys.password
+      },
+      tls: {
+        rejectUnauthorized: false
+      }
+    });
+
+    //sending email with SMTP, configuration using SMTP settings
+    let mailOptions = {
+      from: "lasu clearance - <phawazzzy@gmail.com>", //sender adress
+      to: req.body.userMail, 
+      subject: "Mail from Sport Center" ,
+      html: req.body.comment 
+    };
+
+    Transport.sendMail(mailOptions, (error, info)=>{
+      if (error){
+        console.log(error);
+        console.log(mailOptions.html);
+        
+        //res.send("email could not send due to error:" + error);
+      }else{
+        console.log(info);
+        console.log(mailOptions.html);
+        
+       // res.send("email has been sent successfully");
+      }
+      res.redirect("/sport")
+    });
+})
+
+    
+router.put('/internalComment', function (req, res){
+
+    let Transport = nodemailer.createTransport({
+      service: "gmail",
+      secure: false,
+      port: 25, 
+      auth: {
+        user: "phawazzzy@gmail.com",
+        pass: keys.keys.password
+      },
+      tls: {
+        rejectUnauthorized: false
+      }
+    });
+
+    //sending email with SMTP, configuration using SMTP settings
+    let mailOptions = {
+      from: "lasu clearance - <phawazzzy@gmail.com>", //sender adress
+      to: req.body.userMail, 
+      subject: "Mail from Internal Audit" ,
+      html: req.body.comment 
+    };
+
+    Transport.sendMail(mailOptions, (error, info)=>{
+      if (error){
+        console.log(error);
+        console.log(mailOptions.html);
+        
+        //res.send("email could not send due to error:" + error);
+      }else{
+        console.log(info);
+        console.log(mailOptions.html);
+        
+       // res.send("email has been sent successfully");
+      }
+      res.redirect("/internal")
+    });
+})
+
+
+    
+router.put('/studentaffComment', function (req, res){
+
+    let Transport = nodemailer.createTransport({
+      service: "gmail",
+      secure: false,
+      port: 25, 
+      auth: {
+        user: "phawazzzy@gmail.com",
+        pass: keys.keys.password
+      },
+      tls: {
+        rejectUnauthorized: false
+      }
+    });
+
+    //sending email with SMTP, configuration using SMTP settings
+    let mailOptions = {
+      from: "lasu clearance - <phawazzzy@gmail.com>", //sender adress
+      to: req.body.userMail, 
+      subject: "Mail from Student Affairs" ,
+      html: req.body.comment 
+    };
+
+    Transport.sendMail(mailOptions, (error, info)=>{
+      if (error){
+        console.log(error);
+        console.log(mailOptions.html);
+        
+        //res.send("email could not send due to error:" + error);
+      }else{
+        console.log(info);
+        console.log(mailOptions.html);
+        
+       // res.send("email has been sent successfully");
+      }
+      res.redirect("/studentaff")
+    });
+})
+
 
 
 
@@ -423,6 +618,109 @@ router.get('/logoutStudentaff', function(req, res, next){
   req.logout()
   res.redirect('/studentafflogin')
 })
+
+router.post('/api/savePaystackResponse', function(req, res, next){
+
+    var errs = [];
+    if(req.body.mat_number == undefined)
+      {
+        errs.push("matric number cannot be empty!");
+      } else if(isNaN(req.body.mat_number))
+      {
+        errs.push("matric number should be an integer!");        
+      } else
+      {
+         Clearance.findOne({"matricNo": req.body.mat_number}).then(function(result){
+           console.log(result);
+        
+           if(!result) errs.push("matric number not found!");
+         });
+      }
+
+      if(req.body.trans_reference == undefined)
+      {
+        errs.push("Transaction ref cannot be empty!");
+      } else if(req.body.trans_reference=="" || req.body.trans_reference==" ")
+      {
+        errs.push("Transaction ref cannot be empty!");        
+      }
+
+      if(errs.length==0)
+        {
+          // verify the payment
+//           var http = require("https");
+//           var api_secret_key = "";
+
+//           var option ={
+// "method": "GET",
+// "hostname": [
+//   "api",
+//   "co"
+// ],
+// "path": [
+//   "transaction",
+//   "verify",
+//   req.body.trans_reference
+// ],
+// "headers":{
+//   "cache-control": "no-cache",
+//   "Authorization": "Bearer "+ api_secret_key
+// }
+
+// };
+
+// var req = http.request(options, function (res){
+//   var chunks = [];
+
+//   res.on("data", function(chunk){
+//     chunks.push(chunk)
+//   });
+//   res.on("end", function(){
+//     var body = Buffer.concat(chunks);
+
+
+//     var res = JSON.parse(body);
+//     if(res.data.status=="success")
+//       {
+
+//       }
+
+//     console.log(body.tostring());
+//   });
+// });
+
+// req.end();
+
+
+paystack.transactions.verify(req.body.trans_reference, function(error, body) {
+  if(error){
+res.json({"err":"Unknow error: "+error});
+  } 
+
+  if(body.data.status=="success")
+    {
+
+      // update user data....
+
+
+  //     Clearance.findOneAndUpdate({"matricNo": req.body.mat_number},
+  // {$set:{"payment": true}}, 
+  // {new: true}).then((result)=>{
+  //   console.log(result)
+  // })
+
+  console.log("yoyoyoyoyoyoyo")
+
+      res.json({"success":true})
+    }
+});
+
+            res.json({"name": "hello"});  
+        } else 
+        {
+          res.json(JSON.stringify(errs));
+        }
+});
 
 module.exports = router;
 
