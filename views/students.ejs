@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css?family=Maven+Pro|Montserrat" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://js.paystack.co/v1/inline.js"></script>
@@ -17,6 +18,7 @@
 
 
 
+<script src="https://js.paystack.co/v1/inline.js"></script>
 
 <script src="https://code.jquery.com/jquery-3.1.1.min.js">
 </script>
@@ -37,10 +39,16 @@
 </head>
 <body>
      <div class="main-head"><img src="/public/images/lasu.jpg" height="50px" width="50px"> <p>LASU CLEARANCE 
-
-       <div style="float: right; padding-left: -30px">   <img src="/public/images/lasu.jpg" width="15px" height="15px" alt="">     <button class="btn btn-primary"> click</button>   </div> 
-        </div> 
-
+                <div class="circleBase type2"> 
+                    <a href="/profile" style="text-decoration: none">  
+                    <center>
+                        <h2 style="color: white; margin-top:2px; font-family: 'Slabo 27px', serif; font-weight: 2px">O</h2>
+                    </center>
+                    </a>
+                </div> 
+                <a href="/logout" style="float: right">Log Out</a>
+      
+</div>
      <div class="wrapper1">
          
     <div class="body-content">
@@ -144,7 +152,8 @@
               <%}%>
     </h1>
      </div>    
-     
+
+
 </div>
 
 
@@ -160,12 +169,10 @@
         </button>
         </div>
         <div class="modal-body">
-                <form action="/payment?_method=PUT" method="POST" > 
-                
+                 <form action="/payment?_method=PUT" method="POST" > 
                     <button class="btn btn-primary btn1" type="button" onclick="payWithPaystack()"> Pay alumni fee</button> 
                </form>
-               <br> 
-               <hr>
+<hr>    
 
           <h5>Upload Transaction Receipt</h5>
          <p> <%= typeof msg != "undefined" ? msg : "" %> </p> 
@@ -184,8 +191,37 @@
     </div>
   </div>
 
+ <script src=".././routes/index.js"></script>
 
-  <script src=".././routes/index.js"></script>
+  <!-- <script>  
+function payWithPaystack(){
+    var handler = PaystackPop.setup({
+        key: 'pk_test_2ea4a13fc1876b4e594d05f90282e112fcd8b0fb',
+
+      email: '<%=userEmail%>',
+      amount: 100000,
+      ref: ''+Math.floor((Math.random() * 1000000000) + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
+      metadata: {
+         custom_fields: [
+            {
+                display_name: "Mobile Number",
+                variable_name: "mobile_number",
+                value: "+2348012345678"
+            }
+         ]
+      },
+      callback: function(response){
+          
+          alert('success. transaction ref is ' + response.reference);
+      },
+      onClose: function(){
+          console.log('window closed');
+      }
+    });
+    handler.openIframe();
+  }
+console.log(me)
+</script> -->
 
   <script>
   function payWithPaystack(){
@@ -205,7 +241,7 @@
          ]
       },
       callback: function(response){
-          
+
           alert('success. transaction ref is ' + response.reference);
       },
       onClose: function(){

@@ -16,13 +16,16 @@ exports.profile = function(req, res, next) {
     let matricNo = req.user.matricNo;
     let email = req.user.email;
     let department= req.user.department;
+    let address = req.user.address;
+    let phone = req.user.phone;
+    let year = req.user.year;
     
     Clearance.findOne({"matricNo": matricNo}).then(function(result){
       if (result){
         result.buttonStatus = "View Clearance Progress";
-        res.render("profile", {name: name, email:email,  matricNo: matricNo, button: result.buttonStatus, department: department})
+        res.render("profile", {name: name, email:email,  matricNo: matricNo, button: result.buttonStatus, department: department,  year, address, phone})
       } else if (!result){
-        res.render("profile", {name: name, email:email, matricNo: matricNo, button: "Start Clearance Process", department: department})
+        res.render("profile", {name, email, matricNo, button: "Start Clearance Process", department, year, address, phone})
       }
       })
 
@@ -52,17 +55,18 @@ exports.students = function(req, res, next){
         newClearance.studentAffairs.status = "NOT ENROLLED";
         newClearance.internalAuditUnit.status = "NOT ENROLLED";
         newClearance.fullyCleared.status = "Awaiting Approval";
+        newClearance.payment = false;
         
 
         newClearance.save()
         
 
           console.log(result);
-         res.render('students', {doc: newClearance, userName: userName})
+         res.render('students', {doc: newClearance, userName: userName, userMatric, userEmail })
 
         } else {
               console.log(result)
-         res.render('students', {doc: result, userName: userName})
+         res.render('students', {doc: result, userName: userName, userMatric, userEmail})
 
         }
     })
