@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>My Dashboard</title>
+  <link rel="shortcut icon" href="/public/assets/images/logo-114x123-2.png" type="image/x-icon">
+
     <link rel="stylesheet" href="/public/stylesheets/students.css">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <link href="https://fonts.googleapis.com/css?family=Maven+Pro|Montserrat" rel="stylesheet">
@@ -13,6 +15,9 @@
     <link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://js.paystack.co/v1/inline.js"></script>
+<!-- <script src="../public/js/paystack.js"></script> -->
+
 
 
 <script src="https://js.paystack.co/v1/inline.js"></script>
@@ -228,7 +233,7 @@
 
  <script src=".././routes/index.js"></script>
 
-  <script>  
+  <!-- <script>  
 function payWithPaystack(){
     var handler = PaystackPop.setup({
         key: 'pk_test_2ea4a13fc1876b4e594d05f90282e112fcd8b0fb',
@@ -279,7 +284,36 @@ function payWithPaystack(){
     handler.openIframe();
   }
 console.log(me)
-</script>
+</script> -->
+
+  <script>
+  function payWithPaystack(){
+    var handler = PaystackPop.setup({
+        key: 'pk_test_2ea4a13fc1876b4e594d05f90282e112fcd8b0fb',
+
+      email: '<%= userEmail%>',
+      amount: 100000,
+      ref: ''+Math.floor((Math.random() * 1000000000) + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
+      metadata: {
+         custom_fields: [
+            {
+                display_name: "Mobile Number",
+                variable_name: "mobile_number",
+                value: "+2348012345678"
+            }
+         ]
+      },
+      callback: function(response){
+
+          alert('success. transaction ref is ' + response.reference);
+      },
+      onClose: function(){
+          alert('window closed');
+      }
+    });
+    handler.openIframe();
+  }
+  </script>
 
 </body>
 </html>

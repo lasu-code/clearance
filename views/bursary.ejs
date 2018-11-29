@@ -9,6 +9,8 @@
     <link rel="shortcut icon" href="/public/assets/images/logo-114x123-2.png" type="image/x-icon">
     <meta name="description" content="Website Maker Description">
     <title><%=title%></title>
+  <link rel="shortcut icon" href="/public/assets/images/logo-114x123-2.png" type="image/x-icon">
+
 
     <link rel="stylesheet" href="/public/assets/web/assets/mobirise-icons/mobirise-icons.css">
     <link rel="stylesheet" href="/public/assets/tether/tether.min.css">
@@ -334,7 +336,7 @@ function showPending() {
                                 <div class="btn-group">
                                     <form action="/bursaryReject?_method=PUT" method="POST">
                                         <input type="hidden" name="studentId" value=<%= result[i]._id %>>
-                                    <button type="submit" class="btn btn-danger">REJECT</button>
+                                    <button type="submit" class="btn btn-danger" style="background-color:red">REJECT</button>
                                 </div>
                                 </form>
 
