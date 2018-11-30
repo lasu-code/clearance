@@ -1,201 +1,302 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <title><%= name%>'s profile</title>
-  <link rel="shortcut icon" href="/public/assets/images/logo-114x123-2.png" type="image/x-icon">
+    <link rel="shortcut icon" href="http://localhost:3000/public/images/lasu.jpg" type="image/x-icon">
 
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="shortcut icon" href="/public/assets/images/lasu-logo.png"" type="image/x-icon">
-  <link rel="stylesheet" href="/css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
-  <link rel="stylesheet" href="/public/assets/web/assets/mobirise-icons/mobirise-icons.css">
-  <link rel="stylesheet" href="/public/assets/tether/tether.min.css">
-  <link rel="stylesheet" href="/public/assets/socicon/css/styles.css">
-  <link rel="stylesheet" href="/public/assets/animatecss/animate.min.css">
-  <link rel="stylesheet" href="/public/assets/datatables/data-tables.bootstrap4.min.css">
-  <link rel="stylesheet" href="/public/assets/dropdown/css/style.css">
-  <link rel="stylesheet" href="/public/assets/theme/css/style.css">
-  <link rel="stylesheet" href="/public/assets/mobirise/css/mbr-additional.css" type="text/css">
- <link rel="stylesheet" href="/public/stylesheets/students.css">
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <link href="https://fonts.googleapis.com/css?family=Maven+Pro|Montserrat" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- <link rel="shortcut icon" href="/public/assets/images/lasu-logo.png""
+    type="image/x-icon"> -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css" />
+    <link
+      rel="stylesheet"
+      href="/public/assets/web/assets/mobirise-icons/mobirise-icons.css"
+    />
+    <link rel="stylesheet" href="/public/assets/tether/tether.min.css" />
+    <link rel="stylesheet" href="/public/assets/socicon/css/styles.css" />
+    <link rel="stylesheet" href="/public/assets/animatecss/animate.min.css" />
+    <link
+      rel="stylesheet"
+      href="/public/assets/datatables/data-tables.bootstrap4.min.css"
+    />
+    <link rel="stylesheet" href="/public/assets/dropdown/css/style.css" />
+    <link rel="stylesheet" href="/public/assets/theme/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="/public/assets/mobirise/css/mbr-additional.css"
+      type="text/css"
+    />
+    <link rel="stylesheet" href="/public/stylesheets/students.css" />
+    <link
+      href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+      rel="stylesheet"
+      id="bootstrap-css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Maven+Pro|Montserrat"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=PT+Sans"
+      rel="stylesheet"
+    />
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
+    <!-- <link rel="stylesheet" href="pulic/theme.css" type="text/css"> -->
+  </head>
 
-  <!-- <link rel="stylesheet" href="pulic/theme.css" type="text/css"> -->
-
-</head>
-
-<body>
-  <!--Page navigation header-->
-  <header>
-    <section class="menu cid-qTkzRZLJNu" once="menu" id="menu1-3">
-      <nav class="navbar navbar-expand beta-menu navbar-dropdown align-items-center navbar-fixed-top navbar-toggleable-sm">
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <div class="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-        </button>
-        <div class="menu-logo">
-          <div class="navbar-brand">
-            <span class="navbar-logo">
-              <a href="https://www.lasu.edu.ng" target="_blank">
-                <img src="../public/assets/images/lasu-logo.png" alt="" title="" style="height: 3.8rem;">
-              </a>
-            </span>
-            <span class="navbar-caption-wrap"><a class="navbar-caption text-white display-7" href="https://mobirise.com">LASU
-                Clearance</a></span>
-          </div>
-        </div>
-        <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true">
-                            <li class="nav-item">
-                                <a class="nav-link link text-white display-4" href="https://mobirise.com"><span class="mbri-touch-swipe mbr-iconfont mbr-iconfont-btn"></span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link link text-white display-4" href="https://mobirise.com">
-                                </a>
-                            </li>
-                        </ul>
-                        <div class="navbar-buttons mbr-section-btn"><a class="btn btn-sm btn-secondary-outline display-4" href="/logout">Logout</a></div>
-                    </div> -->
-      </nav>
-    </section>
-  </header>
-
-
-  <!-- Body -->
-  <div class="col-small-12 col-sm-12 col-12 col-lg-6 col-md-6 rounded rounded-bottom rounded-top shadow-lg mx-auto "
-    style="margin-top:100px; margin-bottom:40px;">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 border-bottom border-primary mt-2 p-3 py-4" style="	background-image: url(../public/assets/images/323518-P9KQBP-231.jpg);	background-position: top left;	background-size: 100%;	background-repeat: repeat;">
-          <div class="col-md-12" style="">
-            <div class="col-md-12" style=""><img class="img-fluid d-block rounded-circle mx-auto mb-3" src="../public/assets/images/defaultProfile.png"
-                width="130px"></div>
-            <p style="font-weight: bolder; font-size: 27px;" class="lead text-center text-light"><b><%=name%></b></p>
-          </div>
-        </div>
-      </div>
-      <div class="row rounded border-right border-top-0 border-bottom border-left">
-        <div class="col-md-12 pt-2" style="">
-          <div class="col-md-12" style="">
-            <ul class="list-group list-group-flush mb-2">
-                                      
-              <li class="list-group-item"><b>Name</b><b style="" class="float-right"><%=name%></b></li>
-              <li class="list-group-item"><b> Matric Number</b><b class="float-right"><%=matricNo%></b></li>
-              <li class="list-group-item" style=""><b> Department</b><b style="" class="float-right"><%=department%></b></li>
-              <li class="list-group-item"><b> Email</b><b class="float-right"><%= email%></b></li>
-              <li class="list-group-item"><b> Phone Number</b><b class="float-right"><%=phone%></b></li>
-         
-              <li class="list-group-item"><b>Year of Entry</b><b class="float-right"><%=year%></b></li>
-              
-              <li class="list-group-item"><b> Home Address</b><b class="float-right"><%=address%></b></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12 px-5" style="">
-          <a class="btn btn-primary btn-block pt-2 my-3" href="/students" style="">
-            <b><%=button%></b>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Footer -->
-  <section class="cid-r7f8cmuQ6c mbr-reveal" id="footer5-a">
-    <div class="container">
-      <!-- <div class="media-container-row">
-                  
-                  <!- <div class="col-md-9">
-                      <p class="mbr-text align-right links mbr-fonts-style display-4"><a href="#" class="text-black">TERMS</a> &nbsp;&nbsp;&nbsp;&nbsp;
-                          <a href="#" class="text-black">CAREERS</a> &nbsp;&nbsp;&nbsp;&nbsp;
-                          <a href="#" class="text-black">CONTACT</a></p>
-                  </div> ->
-              </div> -->
-      <div class="footer-lower">
-        <div class="media-container-row">
-          <div class="col-md-12">
-            <div class="col-md-3">
-              <div class="media-wrap">
+  <body>
+    <!-- Page navigation header -->
+    <header>
+      <section class="menu cid-qTkzRZLJNu" once="menu" id="menu1-3">
+        <nav
+          class="navbar navbar-expand beta-menu navbar-dropdown align-items-center navbar-fixed-top navbar-toggleable-sm"
+        >
+          <button
+            class="navbar-toggler navbar-toggler-right"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <div class="hamburger">
+              <span></span> <span></span> <span></span> <span></span>
+            </div>
+          </button>
+          <div class="menu-logo">
+            <div class="navbar-brand">
+              <span class="navbar-logo">
                 <a href="https://www.lasu.edu.ng" target="_blank">
-                  <img src="../public/assets/images/lasu-logo.png"" alt="" title="">
+                  <img
+                    src="../public/assets/images/lasu-logo.png"
+                    alt=""
+                    title=""
+                    style="height: 3.8rem;"
+                  />
                 </a>
-              </div>
+              </span>
+              <span class="navbar-caption-wrap"
+                ><a
+                  class="navbar-caption text-white display-7"
+                  href="#"
+                  >LASU Clearance</a
+                ></span
+              >
             </div>
-            <hr>
+          </div>
+          <!--
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                       <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true">
+                           <li class="nav-item">
+                               <a class="nav-link link text-white display-4" href="https://mobirise.com"><span class="mbri-touch-swipe mbr-iconfont mbr-iconfont-btn"></span>
+                               </a>
+                           </li>
+                           <li class="nav-item">
+                               <a class="nav-link link text-white display-4" href="https://mobirise.com">
+                               </a>
+                           </li>
+                       </ul>
+                       <div class="navbar-buttons mbr-section-btn"><a class="btn btn-sm btn-secondary-outline display-4" href="/logout">Logout</a></div>
+                   </div>
+          -->
+        </nav>
+      </section>
+    </header>
+
+    <!-- Body -->
+    <div
+      class="col-small-12 col-sm-12 col-12 col-lg-6 col-md-6 rounded rounded-bottom rounded-top shadow-lg mx-auto "
+      style="margin-top:100px; margin-bottom:40px;"
+    >
+      <div class="container">
+        <div class="row">
+          <div
+            class="col-lg-12 border-bottom border-primary mt-2 p-3 py-4"
+            style="background-image: url('../public/assets/images/p-background.jpg');	background-position: top left;	background-size: 100%;	background-repeat: repeat;"
+          >
+            <div class="col-md-12" style="">
+              <div class="col-md-12" style="">
+                <img
+                  class="img-fluid d-block rounded-circle mx-auto mb-3"
+                  src="http://www.studentservices.lasu.edu.ng/returningstudents/images/stud_image/<%=matricNo%>.jpg"
+                  width="130px"
+                />
+              </div>
+
+              <p
+                style="font-weight: bolder; font-size: 27px;"
+                class="lead text-center text-light"
+              >
+                <b><%=name%></b>
+              </p>
+            </div>
           </div>
         </div>
+        <div
+          class="row rounded border-right border-top-0 border-bottom border-left"
+        >
+          <div class="col-md-12 pt-2" style="">
+            <div class="col-md-12" style="">
+              <ul class="list-group list-group-flush mb-2">
+                <li class="list-group-item">
+                  <b>Name</b><b style="" class="float-right"><%=name%></b>
+                </li>
+                <li class="list-group-item">
+                  <b> Matric Number</b><b class="float-right"><%=matricNo%></b>
+                </li>
+                <li class="list-group-item" style="">
+                  <b> Department</b
+                  ><b style="" class="float-right"><%=department%></b>
+                </li>
+                <li class="list-group-item">
+                  <b> Email</b><b class="float-right"><%= email%></b>
+                </li>
+                <li class="list-group-item">
+                  <b> Phone Number</b><b class="float-right"><%=phone%></b>
+                </li>
 
+                <li class="list-group-item">
+                  <b>Year of Entry</b><b class="float-right"><%=year%></b>
+                </li>
 
-        <div class="media-container-row mbr-white">
-          <div class="col-md-6 copyright">
-            <p class="mbr-text mbr-fonts-style display-7">
-              © Copyright 2018 Lasucode- All Rights Reserved
-            </p>
+                <li class="list-group-item">
+                  <b> Home Address</b><b class="float-right"><%=address%></b>
+                </li>
+              </ul>
+            </div>
           </div>
-          <div class="col-md-6">
-            <div class="social-list align-right">
-              <div class="soc-item">
-                <a href="https://twitter.com/mobirise" target="_blank">
-                  <span class="socicon-twitter socicon mbr-iconfont mbr-iconfont-social"></span>
-                </a>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 px-5" style="">
+            <a
+              class="btn btn-primary btn-block pt-2 my-3"
+              href="/students"
+              style=""
+            >
+              <b><%=button%></b>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <section class="cid-r7f8cmuQ6c mbr-reveal" id="footer5-a">
+      <div class="container">
+        <!--
+          <div class="media-container-row">
+
+                 <!- <div class="col-md-9">
+                     <p class="mbr-text align-right links mbr-fonts-style display-4"><a href="#" class="text-black">TERMS</a> &nbsp;&nbsp;&nbsp;&nbsp;
+                         <a href="#" class="text-black">CAREERS</a> &nbsp;&nbsp;&nbsp;&nbsp;
+                         <a href="#" class="text-black">CONTACT</a></p>
+                 </div> ->
+             </div>
+        -->
+        <div class="footer-lower">
+          <div class="media-container-row">
+            <div class="col-md-12">
+              <div class="col-md-3">
+                <div class="media-wrap">
+                  <a href="https://www.lasu.edu.ng" target="_blank">
+                    <img src="../public/assets/images/lasu-logo.png"" alt=""
+                    title="">
+                  </a>
+                </div>
               </div>
-              <div class="soc-item">
-                <a href="https://www.facebook.com/pages/Mobirise/1616226671953247" target="_blank">
-                  <span class="socicon-facebook socicon mbr-iconfont mbr-iconfont-social"></span>
-                </a>
-              </div>
-              <div class="soc-item">
-                <a href="https://www.youtube.com/c/mobirise" target="_blank">
-                  <span class="socicon-youtube socicon mbr-iconfont mbr-iconfont-social"></span>
-                </a>
-              </div>
-              <div class="soc-item">
-                <a href="https://instagram.com/mobirise" target="_blank">
-                  <span class="socicon-instagram socicon mbr-iconfont mbr-iconfont-social"></span>
-                </a>
-              </div>
-              <div class="soc-item">
-                <a href="https://plus.google.com/u/0/+Mobirise" target="_blank">
-                  <span class="socicon-googleplus socicon mbr-iconfont mbr-iconfont-social"></span>
-                </a>
-              </div>
-              <div class="soc-item">
-                <a href="https://www.behance.net/Mobirise" target="_blank">
-                  <span class="socicon-behance socicon mbr-iconfont mbr-iconfont-social"></span>
-                </a>
+              <hr />
+            </div>
+          </div>
+
+          <div class="media-container-row mbr-white">
+            <div class="col-md-6 copyright">
+              <p class="mbr-text mbr-fonts-style display-7">
+                © Copyright 2018 Lasucode- All Rights Reserved
+              </p>
+            </div>
+            <div class="col-md-6">
+              <div class="social-list align-right">
+                <div class="soc-item">
+                  <a href="https://twitter.com/mobirise" target="_blank">
+                    <span
+                      class="socicon-twitter socicon mbr-iconfont mbr-iconfont-social"
+                    ></span>
+                  </a>
+                </div>
+                <div class="soc-item">
+                  <a
+                    href="https://www.facebook.com/pages/Mobirise/1616226671953247"
+                    target="_blank"
+                  >
+                    <span
+                      class="socicon-facebook socicon mbr-iconfont mbr-iconfont-social"
+                    ></span>
+                  </a>
+                </div>
+                <div class="soc-item">
+                  <a href="https://www.youtube.com/c/mobirise" target="_blank">
+                    <span
+                      class="socicon-youtube socicon mbr-iconfont mbr-iconfont-social"
+                    ></span>
+                  </a>
+                </div>
+                <div class="soc-item">
+                  <a href="https://instagram.com/mobirise" target="_blank">
+                    <span
+                      class="socicon-instagram socicon mbr-iconfont mbr-iconfont-social"
+                    ></span>
+                  </a>
+                </div>
+                <div class="soc-item">
+                  <a
+                    href="https://plus.google.com/u/0/+Mobirise"
+                    target="_blank"
+                  >
+                    <span
+                      class="socicon-googleplus socicon mbr-iconfont mbr-iconfont-social"
+                    ></span>
+                  </a>
+                </div>
+                <div class="soc-item">
+                  <a href="https://www.behance.net/Mobirise" target="_blank">
+                    <span
+                      class="socicon-behance socicon mbr-iconfont mbr-iconfont-social"
+                    ></span>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous" ></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-    crossorigin="anonymous" ></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-    crossorigin="anonymous" ></script>
-
-</body>
-
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+      integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+      integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
