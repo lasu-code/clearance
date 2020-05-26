@@ -1,0 +1,526 @@
+
+* {
+	box-sizing: border-box;
+}
+.pagehead {
+	margin-top: 73px;
+	margin-bottom: 20px;
+	padding-bottom: 20px;
+	padding-top: 20px;
+	position: relative;
+}
+/* @media all and (min-width:1012px) */
+.pagehead {
+	border-bottom: 1px solid #e1e4e8;
+	height: 106px;
+	position: static;
+}
+.repohead.experiment-repo-nav {
+	background-color: #fafbfc;
+	
+}
+body {
+	margin: 0;
+}
+body {
+	background-color: #fff;
+	color: #24292e;
+	font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+	font-size: 14px;
+	line-height: 1.5;
+}
+
+html {
+	-ms-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+	font-family: sans-serif;
+}
+article, aside, details, figcaption, figure, footer, header, main, menu, nav, section {
+	display: block;
+}
+.container {
+	margin-left: auto;
+	margin-right: auto;
+
+}
+.repohead .repohead-details-container {
+	margin-bottom: 20px;
+}
+.reponav {
+	/* margin-top: -5px; */
+	position: relative;
+	top: -19px;
+}
+a {
+	background-color: initial;
+}
+a {
+	color: #0366d6;
+	text-decoration: none;
+}
+.reponav-item {
+	border: 1px solid transparent;
+	border-radius: 3px 3px 0 0;
+	border-top: 3px solid transparent;
+	color: #586069;
+	float: left;
+	padding: 7px 15px 8px;
+	white-space: nowrap;
+}
+.octicon {
+	display: inline-block;
+	fill: currentColor;
+	vertical-align: text-top;
+}
+.octicon {
+	vertical-align: text-bottom;
+}
+.v-align-text-bottom {
+	vertical-align: text-bottom !important;
+}
+.select-menu-item-icon {
+	float: left;
+	margin-left: -20px;
+}
+svg:not(:root) {
+	overflow: hidden;
+}
+.reponav-item .octicon {
+	color: rgba(27, 31, 35, 0.3);
+}
+
+.Counter {
+	background-color: rgba(27, 31, 35, 0.08);
+	border-radius: 20px;
+	color: #586069;
+	display: inline-block;
+	font-size: 12px;
+	font-weight: 600;
+	line-height: 1;
+	padding: 2px 5px;
+}
+.reponav-item .Counter {
+	color: #444d56;
+}
+.current {
+	background-color: #fff;
+	border-color: #0366d6 #e1e4e8 transparent;
+	color: #24292e;
+}
+.reponav-item.current > .octicon {
+	color: inherit;
+}
+ol, ul {
+	margin-bottom: 0px;
+	margin-top: 0px;
+	padding-left: 0px;
+}
+.pagehead ul.pagehead-actions {
+	float: right;
+	margin: 0;
+	position: relative;
+	z-index: 31;
+}
+h1 {
+	font-size: 2em;
+	margin: .67em 0;
+}
+h1, h2, h3, h4, h5, h6 {
+	margin-bottom: 0px;
+	margin-top: 0px;
+}
+h1 {
+	font-size: 32px;
+}
+h1, h2 {
+	font-weight: 600;
+}
+.pagehead h1 {
+	font-size: 20px;
+	font-weight: 400;
+	line-height: 28px;
+	margin-bottom: 0px;
+	margin-top: 0px;
+}
+.repohead h1 {
+	color: #586069;
+	float: left;
+	font-size: 18px;
+	line-height: 26px;
+	max-width: 635px;
+	padding-left: 18px;
+	position: relative;
+}
+.repohead h1 .octicon {
+	color: #959da5;
+	left: 0px;
+	margin-top: 5px;
+	position: absolute;
+	top: 0px;
+}
+.pagehead .path-divider {
+	margin: 0 .25em;
+}
+b, strong {
+	font-weight: inherit;
+	font-weight: bolder;
+}
+b, strong {
+	font-weight: 600;
+}
+.pagehead-actions > li {
+	color: #24292e;
+	float: left;
+	font-size: 11px;
+	list-style-type: none;
+	margin: 0 10px 0 0;
+}
+.pagehead-actions > li:last-child {
+	margin-right: 0px;
+}
+.float-left {
+	float: left !important;
+}
+.d-inline-block {
+	display: inline-block !important;
+}
+.social-count {
+	background-color: #fff;
+	border: 1px solid rgba(27,31,35,.2);
+	border-bottom-right-radius: 3px;
+	border-left: 0;
+	border-top-right-radius: 3px;
+	color: #24292e;
+	float: left;
+	font-size: 12px;
+	font-weight: 600;
+	line-height: 20px;
+	padding: 3px 10px;
+	vertical-align: middle;
+}
+summary {
+	display: list-item;
+}
+details > summary {
+	display: block;
+}
+button, input, select, textarea {
+	font: inherit;
+	margin: 0;
+}
+button, input {
+	overflow: visible;
+}
+button, details summary {
+	cursor: pointer;
+}
+[type=reset], [type=submit], button, html [type=button] {
+	-webkit-appearance: button;
+}
+button, input, select, textarea {
+	font-family: inherit;
+	font-size: inherit;
+	line-height: inherit;
+}
+button {
+	border-radius: 0;
+}
+button, select {
+	text-transform: none;
+}
+.btn {
+	-moz-appearance: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-webkit-appearance: none;
+	-webkit-user-select: none;
+	appearance: none;
+	background-position: -1px -1px;
+	background-repeat: repeat-x;
+	background-size: 110% 110%;
+	border: 1px solid rgba(27,31,35,.2);
+	border-radius: .25em;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 20px;
+	padding: 6px 12px;
+	position: relative;
+	user-select: none;
+	vertical-align: middle;
+	white-space: nowrap;
+}
+.btn {
+	background-color: #eff3f6;
+	background-image: linear-gradient(-180deg, rgb(250, 251, 252), rgb(239, 243, 246) 90%);
+	color: #24292e;
+}
+.btn-with-count {
+	border-bottom-right-radius: 0px;
+	border-top-right-radius: 0px;
+	float: left;
+}
+.btn-sm {
+	font-size: 12px;
+	line-height: 20px;
+	padding: 3px 10px;
+}
+.details-reset > summary {
+	list-style: none;
+}
+details-dialog {
+	left: 50%;
+	margin: 10vh auto;
+	max-height: 80vh;
+	max-width: 90vw;
+	position: fixed;
+	top: 0px;
+	transform: translateX(-50%);
+	width: 448px;
+	z-index: 999;
+}
+.Box {
+	background-color: #fff;
+	border: 1px solid #d1d5da;
+	border-radius: 3px;
+}
+.anim-fade-in {
+	animation-duration: 1s;
+	animation-name: fade-in;
+	animation-timing-function: ease-in-out;
+}
+.flex-column {
+	flex-direction: column !important;
+}
+.d-flex {
+	display: flex !important;
+}
+.Box--overlay {
+	background-clip: padding-box;
+	background-color: #fff;
+	border-color: #444d56;
+	box-shadow: 0px 0px 18px rgba(0,0,0,0.4);
+	margin-left: auto;
+	margin-right: auto;
+	width: 448px;
+}
+.select-menu-modal {
+	background-clip: padding-box;
+	background-color: #fff;
+	border: 1px solid rgba(27,31,35,.15);
+	border-radius: 3px;
+	box-shadow: 0px 3px 12px rgba(27,31,35,0.15);
+	color: #586069;
+	font-size: 12px;
+	margin-bottom: 20px;
+	margin-top: 4px;
+	overflow: hidden;
+	position: relative;
+	width: 300px;
+}
+details:not([open]) > *:not(summary) {
+	display: none;
+}
+details:not([open]) > :not(summary) {
+	display: none !important;
+}
+.anim-fade-in.fast {
+	animation-duration: 0.3s;
+}
+.Box-header {
+	background-color: #f6f8fa;
+	border: 1px solid #d1d5da;
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+	margin: -1px -1px 0;
+	padding: 16px;
+}
+.Box--overlay .Box-header {
+	border-top-left-radius: 2px;
+	border-top-right-radius: 2px;
+	border-width: 0 0 1px;
+	margin: 0;
+}
+.overflow-auto {
+	overflow: auto !important;
+}
+.text-center {
+	text-align: center !important;
+}
+include-fragment, poll-include-fragment {
+	display: block;
+}
+.my-3 {
+	margin-bottom: 16px !important;
+	margin-top: 16px !important;
+}
+.facebox-loading, .octocat-spinner {
+	background-image: url("/images/spinners/octocat-spinner-64.gif");
+	background-position: 50%;
+	background-repeat: no-repeat;
+	min-height: 64px;
+}
+p {
+	margin-bottom: 10px;
+	margin-top: 0px;
+}
+.text-gray {
+	color: #586069 !important;
+}
+.f5 {
+	font-size: 14px !important;
+}
+.btn-octicon {
+	background: transparent;
+	border: 0;
+	color: #586069;
+	display: inline-block;
+	line-height: 1;
+	margin-left: 5px;
+	padding: 5px;
+	vertical-align: middle;
+}
+.float-right {
+	float: right !important;
+}
+.Box-btn-octicon.btn-octicon {
+	line-height: 1.5;
+	margin: -16px;
+	padding: 16px;
+}
+h3 {
+	font-size: 20px;
+}
+h3, h4 {
+	font-weight: 600;
+}
+.Box-title {
+	font-size: 14px;
+	font-weight: 600;
+}
+.btn .octicon {
+	vertical-align: text-top;
+}
+.starring-container.on .unstarred, .starring-container .starred {
+	display: none;
+}
+.starring-container.on .starred, .starring-container .unstarred {
+	display: block;
+}
+.form-control, .form-select {
+	background-color: #fff;
+	background-position: right 8px center;
+	background-repeat: no-repeat;
+	border: 1px solid #d1d5da;
+	border-radius: 3px;
+	box-shadow: inset 0px 1px 2px rgba(27,31,35,0.075);
+	color: #24292e;
+	font-size: 16px;
+	line-height: 20px;
+	min-height: 34px;
+	outline: none;
+	padding: 6px 8px;
+	vertical-align: middle;
+}
+/* @media all and (min-width:768px) */
+.form-control, .form-select {
+	font-size: 14px;
+}
+.pagehead-actions .select-menu {
+	position: relative;
+}
+details-menu {
+	display: block;
+}
+.position-absolute {
+	position: absolute !important;
+}
+.mt-5 {
+	margin-top: 32px !important;
+}
+.select-menu-divider, .select-menu-header {
+	background: #f6f8fa;
+	border-bottom: 1px solid #e1e4e8;
+	line-height: 16px;
+	padding: 8px 10px;
+}
+.select-menu-list {
+	max-height: 400px;
+	overflow: auto;
+	position: relative;
+}
+.width-full {
+	width: 100% !important;
+}
+
+
+.select-menu-item {
+	border-bottom: 1px solid #eaecef;
+	color: inherit;
+	cursor: pointer;
+	display: block;
+	overflow: hidden;
+	padding: 8px 8px 8px 30px;
+}
+.select-menu-item {
+	background-color: #fff;
+	border-left: 0;
+	border-right: 0;
+	border-top: 0;
+	text-align: left;
+}
+.select-menu-item.current, details-menu [aria-checked=true].select-menu-item, details-menu [aria-current=true].select-menu-item {
+	color: #24292e;
+}
+.select-menu-item.last-visible, :last-child.select-menu-list :last-child.select-menu-item {
+	border-bottom: 0;
+	border-radius: 0 0 3px 3px;
+}
+.pagehead-actions .octicon-mute {
+	color: #cb2431;
+}
+.select-menu-item .octicon {
+	vertical-align: middle;
+}
+.select-menu-item .octicon-check, .select-menu-item input[type=radio]:not(:checked) + .octicon-check {
+	visibility: hidden;
+}
+.select-menu-item-text {
+	display: block;
+	text-align: left;
+}
+.select-menu-item-heading {
+	display: block;
+	font-size: 14px;
+	font-weight: 600;
+	margin-bottom: 0px;
+	margin-top: 0px;
+}
+.select-menu-item-text .description {
+	color: #586069;
+	display: block;
+	font-size: 12px;
+	max-width: 265px;
+}
+.select-menu-item .hidden-select-button-text {
+	display: none;
+}
+.select-menu-item.current > .octicon, details-menu [aria-checked=true].select-menu-item > .octicon, details-menu [aria-current=true].select-menu-item > .octicon {
+	color: #24292e;
+}
+.select-menu-item.current .octicon-check, details-menu [aria-checked=true].select-menu-item .octicon-check, details-menu [aria-current=true].select-menu-item .octicon-check {
+	color: inherit;
+	visibility: visible;
+}
+.select-menu-item.current .description, details-menu [aria-checked=true].select-menu-item .description, details-menu [aria-current=true].select-menu-item .description {
+	color: #586069;
+}
+.select-menu-divider, .select-menu-header .select-menu-title {
+	color: #24292e;
+	font-weight: 600;
+}
+
+
+
+

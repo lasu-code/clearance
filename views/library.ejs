@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="generator" content="Mobirise v4.8.6, mobirise.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+    <link rel="shortcut icon" href="/public/assets/images/logo-114x123-2.png" type="image/x-icon">
+    <meta name="description" content="Website Maker Description">
+    <title><%=title%></title>
+
+    <link rel="stylesheet" href="/public/assets/web/assets/mobirise-icons/mobirise-icons.css">
+    <link rel="stylesheet" href="/public/assets/tether/tether.min.css">
+    <link rel="stylesheet" href="/public/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/public/assets/bootstrap/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="/public/assets/bootstrap/css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="/public/assets/socicon/css/styles.css">
+    <link rel="stylesheet" href="/public/assets/animatecss/animate.min.css">
+    <link rel="stylesheet" href="/public/assets/datatables/data-tables.bootstrap4.min.css">
+    <link rel="stylesheet" href="/public/assets/dropdown/css/style.css">
+    <link rel="stylesheet" href="/public/assets/theme/css/style.css">
+    <link rel="stylesheet" href="/public/assets/mobirise/css/mbr-additional.css" type="text/css">
+    <link rel="stylesheet" href="css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="js/bootstrap-.min.js">
+    <link rel="stylesheet" href="css/bootstrap-reboot.min.css">
+
+    <link rel="stylesheet" href="/public/assets/user/style.css">
+    <link rel="stylesheet" href="https:maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+
+</head>
+
+<body>
+    <header>
+        <!--Page navigation header-->
+        <section class="menu cid-qTkzRZLJNu" once="menu" id="menu1-3">
+                <nav class="navbar navbar-expand beta-menu navbar-dropdown align-items-center navbar-fixed-top navbar-toggleable-sm">
+                    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <div class="hamburger">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </button>
+                    <div class="menu-logo">
+                        <div class="navbar-brand">
+                            <span class="navbar-logo">
+                                <a href="https://www.lasu.edu.ng" target="_blank">
+                                    <img src="/public/assets/images/logo-114x123.png" alt="Mobirise" title="" style="height: 3.8rem;">
+                                </a>
+                            </span>
+                            <span class="navbar-caption-wrap"><a class="navbar-caption text-white display-7" href="https://mobirise.com">LASU
+                                    Clearance</a></span>
+                        </div>
+                    </div>
+                    <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true">
+                            <li class="nav-item">
+                                <a class="nav-link link text-white display-4" href="https://mobirise.com"><span class="mbri-touch-swipe mbr-iconfont mbr-iconfont-btn"></span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link link text-white display-4" href="https://mobirise.com">
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="navbar-buttons mbr-section-btn"><a class="btn btn-sm btn-secondary-outline display-4" href="/logout">Logout</a></div>
+                    </div> -->
+                </nav>
+            </section>
+
+        <!--The status navbar-->
+        <div class="pagehead repohead instapaper_ignore readability-menu experiment-repo-nav  ">
+            <div class="repohead-details-container clearfix container">
+
+
+                <h1 class="public">
+
+                    <span class="author" itemprop="author">Library</a></span>
+
+                    <strong itemprop="name">Dashboard</strong>
+                </h1>
+
+            </div>
+            <br>
+            <nav class="reponav js-repo-nav js-sidenav-container-pjax container" role="navigation" itemtype="http://schema.org/BreadcrumbList"
+                itemscope="" data-pjax="#js-repo-pjax-container">
+
+                <span itemprop="itemListElement" itemtype="http://schema.org/ListItem" itemscope="">
+                    <a class="js-selected-navigation-item  reponav-item current" aria-current="page" href="/library"
+                        data-hotkey="g c" itemprop="url"    >
+
+                        <span itemprop="name">Pending</span>
+                        <span class="Counter"><%=pendingCount%></span>
+                        <meta content="1" itemprop="position">
+                    </a> </span>
+
+                <span itemprop="itemListElement" itemtype="http://schema.org/ListItem" itemscope="">
+                    <a class="js-selected-navigation-item reponav-item" href="/clearedLibrary" data-hotkey="g i" data-selected-links="repo_issues repo_labels repo_milestones /Robogeek95/Baba-ijebu-main/issues"
+                        itemprop="url"  >
+
+                        <span itemprop="name">Cleared</span>
+                        <span class="Counter"><%=clearedCount%></span>
+                        <meta content="2" itemprop="position">
+                    </a> </span>
+
+                <span itemprop="itemListElement" itemtype="http://schema.org/ListItem" itemscope="">
+                    <a class="js-selected-navigation-item reponav-item " href="/rejectedLibrary" data-hotkey="g i" data-selected-links="repo_issues repo_labels repo_milestones /Robogeek95/Baba-ijebu-main/issues"
+                        itemprop="url" >
+
+                        <span itemprop="name">Rejected</span>
+                        <span class="Counter"><%=rejectCount%></span>
+                        <meta content="2" itemprop="position">
+                    </a> </span>
+                     
+<span itemprop="itemListElement" itemtype="http://schema.org/ListItem" itemscope="" style="float: right">
+                    <a class="js-selected-navigation-item reponav-item " href="/logoutLibrary" data-hotkey="g i" data-selected-links="repo_issues repo_labels repo_milestones /Robogeek95/Baba-ijebu-main/issues"
+                        itemprop="url" >
+
+                        <span itemprop="name">Logout</span>
+                       
+                        <meta content="2" itemprop="position">
+                    </a> </span>
+
+            </nav>
+
+
+
+
+         
+
+
+
+
+                          
+             <script>
+                 
+function showPending() {
+
+     let x = document.getElementById("pend");
+    let y = document.getElementById("clear");
+    let z = document.getElementById("reject");
+
+        x.style.display = "block";
+        y.style.display = "none";
+        z.style.display = "none";
+    }
+
+
+ function showCleared() {
+
+     let x = document.getElementById("pend");
+    let y = document.getElementById("clear");
+    let z = document.getElementById("reject");
+
+        x.style.display = "none";
+        y.style.display = "block";
+        z.style.display = "none";
+    
+ }
+
+     function showRejected() {
+
+     let x = document.getElementById("pend");
+    let y = document.getElementById("clear");
+    let z = document.getElementById("reject");
+
+        x.style.display = "none";
+        y.style.display = "none";
+        z.style.display = "block";
+      
+     }          
+
+  function Toggle() {   
+    var i;
+    // let tabcontent = document.getElementsByClassName("tabcontent");
+    let statusnav = document.getElementsByClassName("reponav-item");
+  
+    for (i = 0; i < statusnav.length; i++) {
+        //Hides the tabcontent
+        // tabcontent[i].style.display = "none";
+       
+        //Makes the tablinks inactive
+         statusnav[i].className = statusnav[i].className.replace("current", "");
+    }
+     event.currentTarget.className += " current";
+    // document.getElementById(groupName).style.display = "block";
+    //displays the current tablink as active.
+};
+
+            </script> 
+
+        </div>
+
+    </header>
+
+    <!--Table-->
+    
+    <section class="section-table cid-r7f77huOtX" id="pending">
+
+        <div id="pend" style="display: block" > 
+
+
+
+        <div class="container container-table">
+            <div class="table-title pl-3 Ttitle">
+                <h1 class="h1">PENDING LIST</h1>
+            </div>
+
+            <div class="table-wrapper">
+                <div class="container">
+                    <div class="row search">
+                        <div class="col-md-6"></div>
+                        <div class="col-md-6">
+                            <div class="dataTables_filter">
+                                <label class="searchInfo mbr-fonts-style display-7">Search:</label>
+                                <input class="form-control input-sm" disabled="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container scroll"></div>
+                <table class="table table-hover table-striped isSearch table-hover" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>NAME</th>
+                            <th>MATRIC</th>
+                            
+                            <th>DEPARTMENT</th>
+                            <th>DETAILS</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                                                  
+                             <% for(i=0; i<result.length; i++){%>
+        
+       <td> <b> <%= result[i].userFullName %> </b> </td>
+       <td > <%= result[i].matricNo %>  </td>
+       <td > <%= result[i].department %>  </td>       
+       <td>          <button type="button" data-toggle="modal" class="btn btn-info btn-sm" class="details"
+                                        data-target="#myModal<%=[i]%>">show
+                                        details</button>
+
+
+
+                                         <!-- Modal -->
+        <!-- Trigger the modal with a button -->
+                                             
+        <div id="myModal<%=[i]%>" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">
+                           STUDENT DETAILS</h4>
+
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <div class="modal-body">
+                        <!-- document -->
+                        <div class="container-fluid">
+
+                            <ul class="list-group">
+                               
+                                <li class="list-group-item"> <%= result[i].userFullName %>
+                                    </li>
+                                <li class="list-group-item"> <%= result[i].matricNo %>
+                                    
+                                </li>
+
+                            </ul>
+
+
+
+                            <h3>Transaction Receipt</h3>
+                            
+                            <!-- transaction slip -->
+                            <div class="transaction slip" >
+
+                                <img src="<%= result[i].bursaryUnit.document %>" width="200px" height="200px" alt="profile" srcset="">  
+                        
+                                
+                                 
+                             
+                            </div>
+
+              
+                              <br> <br>
+                            
+
+                            
+                            <div class="form-group">
+                                <form action="/bursaryComment?_method=PUT" method="POST">
+                                    <label for="comment">Comment:</label>
+                                    <input type="hidden" name="userMail" value=<%= result[i].email %>>
+                                    <textarea name="comment" class="form-control" rows="5" id="comment" ></textarea>
+                                    <br>
+                                    <button class="btn btn-primary" type="submit">post</button>
+                                </form>
+                            </div>
+                                     
+                            <div class="btn-group">
+                                <form action="/bursaryClear?_method=PUT" method="POST" > 
+                                <input type="hidden" name="resultId" value=<%= result[i]._id %>>
+                                    <button type="submit" class="btn btn-success">CLEAR</button>
+                                </div>
+                                </form> 
+
+                                
+                                <div class="btn-group">
+                                    <form action="/bursaryReject?_method=PUT" method="POST">
+                                        <input type="hidden" name="studentId" value=<%= result[i]._id %>>
+                                    <button type="submit" class="btn btn-danger">REJECT</button>
+                                </div>
+                                </form>
+
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        
+   
+
+    </div>
+
+
+
+
+
+        </td>
+       </tr>
+            <% } %>
+
+                           
+
+                    </tbody>
+
+                </table>
+
+
+
+                <div class="container table-info-container">
+                    <div class="row info">
+                        <div class="col-md-6">
+                            <div class="dataTables_info mbr-fonts-style display-7">
+                                <span class="infoBefore">Showing</span>
+                                <span class="inactive infoRows"></span>
+                                <span class="infoAfter">entries</span>
+                                <span class="infoFilteredBefore">(filtered from</span>
+                                <span class="inactive infoRows"></span>
+                                <span class="infoFilteredAfter"> total entries)</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="/public/assets/web/assets/jquery/jquery.min.js"></script>
+    <script src="/public/assets/popper/popper.min.js"></script>
+    <script src="/public/assets/tether/tether.min.js"></script>
+    <script src="/public/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/public/assets/smoothscroll/smooth-scroll.js"></script>
+    <script src="/public/assets/touchswipe/jquery.touch-swipe.min.js"></script>
+    <script src="/public/assets/viewportchecker/jquery.viewportchecker.js"></script>
+    <script src="/public/assets/datatables/jquery.data-tables.min.js"></script>
+    <script src="/public/assets/datatables/data-tables.bootstrap4.min.js"></script>
+    <script src="/public/assets/dropdown/js/script.min.js"></script>
+    <script src="/public/assets/theme/js/script.js"></script>
+
+  
+
+    <input name="animation" type="hidden">
+</body>
+
+</html>
+
+
+
+
